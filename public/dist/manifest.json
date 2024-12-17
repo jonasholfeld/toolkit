@@ -1,0 +1,106 @@
+{
+  "HomeNavLink.css": {
+    "file": "assets/HomeNavLink-85abe883.css",
+    "src": "HomeNavLink.css"
+  },
+  "_HomeNavLink-653fbba9.js": {
+    "css": [
+      "assets/HomeNavLink-85abe883.css"
+    ],
+    "file": "assets/HomeNavLink-653fbba9.js",
+    "imports": [
+      "main.js"
+    ]
+  },
+  "assets/images/Minus_groß.svg": {
+    "file": "assets/Minus_groß-0f15bbda.svg",
+    "src": "assets/images/Minus_groß.svg"
+  },
+  "main.css": {
+    "file": "assets/main-23566f0b.css",
+    "src": "main.css"
+  },
+  "main.js": {
+    "assets": [
+      "assets/Minus_groß-0f15bbda.svg"
+    ],
+    "css": [
+      "assets/main-23566f0b.css"
+    ],
+    "dynamicImports": [
+      "views/Error.vue",
+      "views/Home copy_pre241126.vue",
+      "views/Home_copy_241203.vue",
+      "views/Workcategory.vue",
+      "views/Error.vue",
+      "views/Home copy_pre241126.vue",
+      "views/Home_copy_241203.vue",
+      "views/Workcategory.vue"
+    ],
+    "file": "assets/main-43e597f7.js",
+    "isEntry": true,
+    "src": "main.js"
+  },
+  "views/Error.css": {
+    "file": "assets/Error-b4239293.css",
+    "src": "views/Error.css"
+  },
+  "views/Error.vue": {
+    "css": [
+      "assets/Error-b4239293.css"
+    ],
+    "file": "assets/Error-d6cbb321.js",
+    "imports": [
+      "main.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "views/Error.vue"
+  },
+  "views/Home copy_pre241126.css": {
+    "file": "assets/Home copy_pre241126-3c586336.css",
+    "src": "views/Home copy_pre241126.css"
+  },
+  "views/Home copy_pre241126.vue": {
+    "css": [
+      "assets/Home copy_pre241126-3c586336.css"
+    ],
+    "file": "assets/Home copy_pre241126-f04dd11f.js",
+    "imports": [
+      "_HomeNavLink-653fbba9.js",
+      "main.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "views/Home copy_pre241126.vue"
+  },
+  "views/Home_copy_241203.css": {
+    "file": "assets/Home_copy_241203-51b19111.css",
+    "src": "views/Home_copy_241203.css"
+  },
+  "views/Home_copy_241203.vue": {
+    "css": [
+      "assets/Home_copy_241203-51b19111.css"
+    ],
+    "file": "assets/Home_copy_241203-15478db1.js",
+    "imports": [
+      "_HomeNavLink-653fbba9.js",
+      "main.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "views/Home_copy_241203.vue"
+  },
+  "views/Workcategory.css": {
+    "file": "assets/Workcategory-a23bc1bb.css",
+    "src": "views/Workcategory.css"
+  },
+  "views/Workcategory.vue": {
+    "css": [
+      "assets/Workcategory-a23bc1bb.css"
+    ],
+    "file": "assets/Workcategory-afbb0657.js",
+    "imports": [
+      "main.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "views/Workcategory.vue"
+  }
+}
