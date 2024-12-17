@@ -7,14 +7,17 @@ columns:
         type: fields
         fields:
           color:
+            label: Farbe Einzelarbeit
             type: color
           size:
+            label: Größe für Raster Modus 2
             type: select
             options:
               - small
               - medium
               - large
           gallery:
+            label: Bild Upload
             multiple: false
             type: files
   - width: 1/2
@@ -23,8 +26,11 @@ columns:
         type: fields
         fields:
           infofield:
+            label: Generelle Informationen
             type: textarea
           ratio:
+            label: Größe
             type: text
           year:
+            label: Jahr
             type: text

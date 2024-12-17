@@ -2,19 +2,19 @@ Title: Gustav Koernig
 
 ----
 
+Infoheader: Wanderausstellung
+
+----
+
+Description: Gustav Körnig is an artist from
+
+----
+
 Infocolor: #A2AA00
 
 ----
 
 Workcolor: #AB7EFF
-
-----
-
-Infoheader: Wanderausstellung
-
-----
-
-Description: 
 
 ----
 

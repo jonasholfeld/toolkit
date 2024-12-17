@@ -1,11 +1,17 @@
 title: infohub
 
+options:
+  delete: false
+  changeSlug: false
+  changeStatus: false
+  changeTemplate: false
+
 columns:
   - width: 1/2
     sections:
       pages:
         create: information
-        label: Infopages
+        label: Unterseiten
         type: pages
         template: information
   - width: 1/2
@@ -14,4 +20,5 @@ columns:
         type: fields
         fields:
           infocolor:
+            label: Farbe Information
             type: color

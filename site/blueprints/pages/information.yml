@@ -1,17 +1,13 @@
 title: Information
 
 columns:
-  - width: 1/2
-    sections:
-      fields:
-        type: fields
-        fields:
-  - width: 1/2
+  - width: 1
     sections:
       fieldsr:
         type: fields
         fields:
           blockseditor:
+            label: Editor
             type: blocks
             fieldsets:
               - text

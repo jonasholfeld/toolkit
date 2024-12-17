@@ -1,7 +1,13 @@
 title: works
 
+options:
+  delete: false
+  changeSlug: false
+  changeStatus: false
+  changeTemplate: false
+
 columns:
-  - width: 1/2
+  - width: 2/3
     sections:
       pages:
         create: workcategory
@@ -9,10 +15,11 @@ columns:
         type: pages
         template: workcategory
         layout: table
-  - width: 1/2
+  - width: 1/3
     sections:
       infofields:
         type: fields
         fields:
           workcolor:
+            label: Farbe Arbeiten
             type: color
