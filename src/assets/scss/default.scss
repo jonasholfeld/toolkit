@@ -1,0 +1,174 @@
+@import "variables";
+
+@font-face {
+  font-family: "Rhetorik";
+  src: url("/assets/fonts/RhetorikSerif-Light.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Rhetorik";
+  src: url("/assets/fonts/RhetorikSerif-LightItalic.woff2") format("woff2");
+  font-weight: normal;
+  font-style: italic;
+}
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+  font-size: 1vw;
+  font-family: "Rhetorik", serif;
+  position: relative;
+  @include mobile {
+    height: unset;
+    overflow: unset;
+  }
+}
+
+body {
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  padding: 1rem;
+  @include mobile {
+    height: 100%;
+    overflow: unset;
+    padding: 3rem;
+  }
+  &.info {
+    @include mobile {
+      background-color: black;
+    }
+  }
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: unset;
+}
+
+.button_show_works,
+.button_show_infos {
+  @include mobile {
+    text-decoration: underline !important;
+  }
+  .draggable:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    font-style: normal !important;
+  }
+  &.active .draggable {
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    font-style: normal !important;
+  }
+}
+
+.info-section-work {
+  p {
+    margin: 0;
+    line-height: 1;
+  }
+}
+
+.info-section {
+  p {
+    margin: 0;
+    line-height: 1;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+    @include mobile {
+      font-size: $mobileSmallSize !important;
+      &:first-child {
+        font-size: $mobileBigSize !important;
+      }
+    }
+  }
+  figure {
+    margin: 0;
+    margin-bottom: 0.5rem;
+    img {
+      width: 100%;
+      pointer-events: none;
+    }
+    figcaption {
+      text-align: center;
+      line-height: 1;
+    }
+  }
+  .block-table {
+    tr {
+      margin-bottom: 1rem;
+      display: block;
+    }
+    td {
+      padding: 0;
+    }
+    .timespan {
+      width: 8rem;
+    }
+  }
+}
+
+.side-navi {
+  .privatsphare,
+  .impressum {
+    display: none;
+  }
+}
+.works-wrapper {
+  .single-work {
+    cursor: default;
+    img {
+      &:hover {
+        cursor: url("/assets/images/Plus_klein.svg"), auto;
+      }
+    }
+  }
+}
+
+.home-navigation {
+  .work-navigation {
+    .drag-track {
+      &:nth-child(odd) {
+        .draggable-link {
+          border-radius: 3rem;
+        }
+      }
+    }
+  }
+  .info-navigation {
+    .drag-track {
+      &:nth-child(even) {
+        .draggable-link {
+          border-radius: 3rem;
+        }
+      }
+    }
+  }
+}

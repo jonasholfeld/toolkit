@@ -1,3 +1,5 @@
+
+
 node_modules
 vendor
 .DS_Store
@@ -8,24 +10,26 @@ components.d.ts
 # Kirby
 .lock
 /public/media/*
+/public/.htaccess
+/public/assets
+/site/config/config.php
 !/public/media/index.html
+
 /storage/accounts/*
 !/storage/accounts/.gitkeep
 /storage/cache/*
 !/storage/cache/.gitkeep
-# /storage/content/*
-# !/storage/content/.gitkeep
+/storage/content/*
 /storage/logs/*
 !/storage/logs/.gitkeep
 /storage/sessions/*
 !/storage/sessions/.gitkeep
+/public/.htaccess
 /site/config/.license
+/public/assets
+/storage/content/site.txt
 
 # Plugins
 /site/plugins/*
 !/site/plugins/gallery
 !/site/plugins/kirby-vue-kit
-
-# Build assets
-/public/assets
-/public/dist

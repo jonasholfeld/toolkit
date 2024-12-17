@@ -3,7 +3,7 @@
 /** @var \Kirby\Cms\Page $page */
 ?>
 <!DOCTYPE html>
-<html lang="<?= $kirby->languageCode() ?? 'en' ?>">
+<html lang="en">
 <head>
 
   <meta charset="utf-8">
@@ -17,21 +17,21 @@
   <?= $meta->jsonld() ?>
   <?= $meta->social() ?>
 
-  <meta name="theme-color" content="#41b883">
+  <meta name="theme-color" content="#e0f1f0">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="<?= $site->title()->escape() ?>">
 
   <link rel="manifest" href="/manifest.json">
-  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" sizes="180x180">
+  <link rel="shortcut icon" type="image/png" href="/img/favicon.png"/>
+  <link rel="icon" href="/img/favicon.png" type="image/svg+xml">
 
   <?= vueKit()->preloadJson($page->uri()) ?>
   <?= vueKit()->preloadModule($page->intendedTemplate()->name()) ?>
 
   <?= vueKit()->js() ?>
   <?= vueKit()->css() ?>
-
+  <?php snippet('scss'); ?>
 </head>
 <body>
 

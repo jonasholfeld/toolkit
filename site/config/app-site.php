@@ -1,31 +1,43 @@
 <?php
 
+
 return [
-    // (1)
-    // The following data is mandatory for the frontend router to initialize:
-    'children' => site()
-        ->children()
-        ->published()
+    'children' => site()->children()->listed()->map(fn ($child) => [
+        'uri' => $child->uri(),
+        'title' => $child->title()->value(),
+        'isListed' => $child->isListed(),
+        'template' => $child->intendedTemplate()->name(),
+        'childTemplate' => $child->hasChildren() ? $child->children()->first()->intendedTemplate()->name() : null,
+    ])
+    ->values(),
+    'information' => [
+        'color' => page('information')->infocolor()->value(),
+        'children' => page('information')->children()->listed()->flip()
         ->map(fn ($child) => [
             'uri' => $child->uri(),
             'title' => $child->title()->value(),
             'isListed' => $child->isListed(),
             'template' => $child->intendedTemplate()->name(),
-            'childTemplate' => $child->hasChildren() ? $child->children()->first()->intendedTemplate()->name() : null
+            'childTemplate' => $child->hasChildren() ? $child->children()->first()->intendedTemplate()->name() : null,
+            'categories' => $child->categories() ? $child->categories()->toStructure()->map(fn ($note) => $note->category())->values() : null
+        ])
+        ->values()
+    ],
+    'works' => [
+        'color' => page('arbeiten')->workcolor()->value(),
+        'children' =>  page('arbeiten')->children()->published()
+            ->map(fn ($child) => [
+            'uri' => $child->uri(),
+            'title' => $child->title()->value(),
+            'isListed' => $child->isListed(),
+            'template' => $child->intendedTemplate()->name(),
+            'childTemplate' => $child->hasChildren() ? $child->children()->first()->intendedTemplate()->name() : null,
+            'categories' => $child->categories() ? $child->categories()->toStructure()->map(fn ($note) => $note->category())->values() : null
         ])
         ->values(),
-
-    // (2)
-    // The following data is required for multi-language setups:
+    ],
     'languages' => kirby()
         ->languages()
         ->toArray(),
-
-    // (3)
-    // You can add custom commonly used data, as done for this starterkit:
     'title' => site()->title()->value(),
-    'social' => page('about')
-        ->social()
-        ->toStructure()
-        ->toArray()
 ];

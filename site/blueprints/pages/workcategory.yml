@@ -1,0 +1,18 @@
+title: workCategory
+
+columns:
+  - width: 1/2
+    sections:
+      pages:
+        create: work
+        label: Arbeiten
+        type: pages
+        template: work
+  - width: 1/3
+    sections:
+      fields:
+        type: fields
+        fields:
+          additionalraster:
+            type: toggle
+            label: Zusätzliches Raster?

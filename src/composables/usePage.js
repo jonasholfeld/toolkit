@@ -1,6 +1,7 @@
 import { reactive, readonly } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useAnnouncer, useKirbyApi } from "./";
+import { store } from "~/modules/store.js";
 
 /**
  * Returns page data by id or the current route path
@@ -41,7 +42,7 @@ export function usePage(path, query = {}) {
     // Check if cached page exists (otherwise skip SWR)
     const isCached = hasPage(id, query);
     // Get page from cache or freshly fetch it
-    const data = await getPage(id, {
+    let data = await getPage(id, {
       query: {
         ...query,
         ...(token ? { token } : {}),
@@ -56,9 +57,22 @@ export function usePage(path, query = {}) {
     // Check data origin when the hook is used on the current route
     if (!path) {
       // Redirect to error page if data returned *is* the error page
+
       if (data.__isErrorPage && currentPath !== "/error") {
-        router.replace({ path: "/error" });
-        return;
+        data = await getPage("/projects/" + id, {
+          query: {
+            ...query,
+            ...(token ? { token } : {}),
+          },
+        });
+        if (!data) {
+          page.__status = "error";
+          return;
+        }
+        if (data.__isErrorPage && currentPath !== "/error") {
+          router.replace({ path: "/error" });
+          return;
+        }
       }
     }
 
@@ -72,8 +86,8 @@ export function usePage(path, query = {}) {
     // Further actions only if the hook was called for the current route
     if (!path) {
       // Set document title
-      document.title = page.metaTitle;
-
+        document.title = page.metaTitle;
+        store.pageTitle = page.metaTitle;
       // Announce new route
       setAnnouncer(`Navigated to ${page.title}`);
     }

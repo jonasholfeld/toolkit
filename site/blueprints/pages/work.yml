@@ -1,0 +1,30 @@
+title: Work
+
+columns:
+  - width: 1/2
+    sections:
+      fields:
+        type: fields
+        fields:
+          color:
+            type: color
+          size:
+            type: select
+            options:
+              - small
+              - medium
+              - large
+          gallery:
+            multiple: false
+            type: files
+  - width: 1/2
+    sections:
+      fieldsr:
+        type: fields
+        fields:
+          infofield:
+            type: textarea
+          ratio:
+            type: text
+          year:
+            type: text

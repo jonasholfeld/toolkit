@@ -1,0 +1,25 @@
+title: Locations
+
+columns:
+  - width: 1
+    fields:
+      locations:
+        label: 
+        type: structure
+        fields:
+          headline:
+            type: text
+            label: Titel
+          datefield:
+            type: text
+            label: Zeitraum
+          description:
+            label: Text
+            type: textarea
+            buttons: false
+          locationimages:
+            type: files
+            label: Bilder
+          currentlocation:
+            type: toggle
+            label: Ist aktueller Standort

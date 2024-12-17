@@ -1,0 +1,23 @@
+title: Subpage
+
+columns:
+  - width: 1
+    fields:
+      editor:
+        type: blocks
+        label: Blocks-Editor
+        fieldsets:
+          columns:
+            extends: blocks/columns
+            fields:
+              layout:
+                layouts:
+                  - "1/1"
+                  - "1/2, 1/2"
+                  - "1/2, 1/4, 1/4"
+                  - "1/4, 1/4, 1/2"
+                  - "1/4, 1/4, 1/4, 1/4"
+                fieldsets:
+                  - heading
+                  - text
+                  - image

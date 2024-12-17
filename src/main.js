@@ -1,7 +1,8 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import "./styles/main.css";
+import mitt from "mitt";
 
+const emitter = mitt();
 const app = createApp(App);
 
 for (const m of Object.values(
@@ -9,5 +10,5 @@ for (const m of Object.values(
 )) {
   m.install?.(app);
 }
-
+app.config.globalProperties.emitter = emitter;
 app.mount("#app");

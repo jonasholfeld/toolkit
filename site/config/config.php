@@ -2,14 +2,15 @@
 
 return [
 
-    'debug' => env('KIRBY_MODE') === 'development' || env('KIRBY_DEBUG', false),
-
+    'debug' => true,
+    'scssNestedCheck' => true,
     'languages' => env('KIRBY_MULTILANG', false),
     'languages.detect' => env('KIRBY_MULTILANG_DETECT', false),
 
     'panel' => [
         'install' => env('KIRBY_PANEL_INSTALL', false),
-        'slug' => env('KIRBY_PANEL_SLUG', 'panel')
+        'slug' => env('KIRBY_PANEL_SLUG', 'panel'),
+        'language' => 'de'
     ],
 
     'api' => [

@@ -13,7 +13,16 @@ export default defineConfig(({ mode }) => {
     root,
     base: mode === "development" ? "/" : "/dist/",
     envPrefix,
-
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData:
+            `@import "` +
+            resolve(__dirname, "public/assets") +
+            `/scss/_variables.scss";`,
+        },
+      },
+    },
     resolve: {
       alias: {
         "~/": `${resolve(__dirname, root)}/`,

@@ -1,55 +1,74 @@
-# Each page blueprint must have a title, the title may be different from the file name
-title: About us
+title: About
 
-# Each page can have an icon that is shown in page listings when no preview image is available.
-icon: ☎️
-
-# Limit the possible page statuses to `draft` and `listed`.
-# More about page statuses: https://getkirby.com/docs/reference/panel/blueprints/page#statuses
-status:
-  draft: true
-  listed: true
-
-# Page options allow you to control how users can interact with the page.
-# Here we prevent changing the page slug and page deletion
-# More about page options: https://getkirby.com/docs/reference/panel/blueprints/page#options
-options:
-  changeSlug: false
-  delete: false
-
-# Define the form layout with two columns, each column has a set of fields
-# Columns are optional but help structure the form layout
-# More about columns: https://getkirby.com/docs/guide/blueprints/layout#defining-columns
-columns:
-  - width: 1/2
-    fields:
-      text:
-        label: Text
-        type: textarea
-        size: huge
-
-  - width: 1/2
-    # Kirby has many different field types, from simple text fields to the more complex structure field that contains subfields
-    # All available field types: https://getkirby.com/docs/reference/panel/fields
-    fields:
-      address:
-        label: Address
-        type: textarea
-      email:
-        label: Email
-        type: email
-      phone:
-        label: Phone
-        type: tel
-      social:
-        label: On the web
-        type: structure
+tabs:
+  content:
+    label: About Jul Gordon
+    icon: text
+    columns:
+      - width: 2/3
         fields:
-          platform:
-            label: Platform
-            type: text
-            width: 1/2
-          url:
-            label: URL
-            type: url
-            width: 1/2
+          sonderzeichen:
+            type: info
+            label:
+            text: " Anführungszeichen DE:  “” | Anführungszeichen EN:  „“ | Apostroph:  ’ | Gedankenstrich:  – | Mal-Zeichen: × | Copyright:  ©"
+          welcometext:
+            type: writer
+            marks:
+              - link
+              - email
+          infotext:
+            type: writer
+            size: small
+            label: Info Text
+            marks:
+              - link
+              - email
+          text:
+            type: writer
+            size: large
+            nodes: false
+            marks:
+              - link
+              - email
+      - width: 1/3
+        sections:
+          meta:
+            type: fields
+            fields:
+              gallery:
+                type: files
+                uploads: image
+                query: site.files.add(site.index.files)
+              date:
+                type: date
+                time: true
+                default: now
+              zeitraum:
+                type: text
+                label: Zeitraum (Teaching)
+              publication:
+                type: toggle
+                default: false
+                label: Publikation
+              author:
+                type: text
+  subpages:
+    label: Unterseiten
+    columns:
+      - width: 1/2
+        sections:
+          subpages:
+            type: pages
+            templates:
+              - note
+              - internallink
+      - width: 1/2
+        sections:
+          fields:
+            type: fields
+            fields:
+              categories:
+                type: structure
+                fields:
+                  category:
+                    type: text

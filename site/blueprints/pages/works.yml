@@ -1,0 +1,18 @@
+title: works
+
+columns:
+  - width: 1/2
+    sections:
+      pages:
+        create: workcategory
+        label: Kategorien
+        type: pages
+        template: workcategory
+        layout: table
+  - width: 1/2
+    sections:
+      infofields:
+        type: fields
+        fields:
+          workcolor:
+            type: color

@@ -1,0 +1,24 @@
+title: Meta
+icon: 📖
+
+columns:
+  - width: 1/2
+    sections:
+      drafts:
+        type: pages
+        headline: Posts
+        template: note
+        sortBy: date desc
+  - width: 1/2
+    sections:
+      fields:
+        type: fields
+        fields:
+          categories:
+            type: structure
+            fields:
+              category:
+                type: text
+          description:
+            label: Website Meta Beschreibung (SEO)
+            type: textarea

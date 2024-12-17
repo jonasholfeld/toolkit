@@ -1,0 +1,22 @@
+name: CV Tabelle
+icon: menu
+preview: table
+fields:
+  rows:
+    type: structure
+    columns:
+      timespan:
+        label: Zeitspanne
+        width: 1/2
+      description:
+        label: Beschreibung
+        width: 1/2
+    fields:
+      timespan:
+        label: Zeitspanne
+        type: writer
+        marks: false
+        inline: true
+      description:
+        type: writer
+        label: Beschreibung

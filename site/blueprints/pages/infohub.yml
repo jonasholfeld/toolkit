@@ -1,0 +1,17 @@
+title: infohub
+
+columns:
+  - width: 1/2
+    sections:
+      pages:
+        create: information
+        label: Infopages
+        type: pages
+        template: information
+  - width: 1/2
+    sections:
+      infofields:
+        type: fields
+        fields:
+          infocolor:
+            type: color

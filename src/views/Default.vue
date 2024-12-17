@@ -1,5 +1,5 @@
 <template>
-  <Intro>{{ page.title }}</Intro>
+  <Intro>{{ page.title }}ee</Intro>
 
   <!-- eslint-disable-next-line vue/no-v-html -->
   <div v-if="page.isReady" v-kirbytext class="text" v-html="page.text" />

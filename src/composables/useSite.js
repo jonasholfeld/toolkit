@@ -1,6 +1,7 @@
 import { reactive, readonly } from "vue";
 
 const data = JSON.parse(document.getElementById("site-data").textContent);
+data.isReady = true;
 
 const site = reactive(data);
 

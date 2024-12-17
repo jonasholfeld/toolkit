@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 28 28" style="enable-background:new 0 0 28 28;" xml:space="preserve" width='25' height='25'>
+<style type="text/css">
+	.st0{fill:#FFFFFF;stroke:#1D1D1B;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#1D1D1B;stroke-miterlimit:10;}
+</style>
+<path class="st0" d="M14,27.2C6.7,27.2,0.8,21.3,0.8,14S6.7,0.8,14,0.8S27.2,6.7,27.2,14S21.3,27.2,14,27.2"/>
+<line class="st1" x1="7.9" y1="14" x2="20.1" y2="14"/>
+<line class="st1" x1="14" y1="7.9" x2="14" y2="20.1"/>
+</svg>

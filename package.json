@@ -11,7 +11,10 @@
     "release": "npx -y bumpp --commit --push --tag"
   },
   "dependencies": {
+    "gsap": "^3.12.5",
+    "mitt": "^3.0.1",
     "ofetch": "^1.0.1",
+    "sass": "^1.81.1",
     "scule": "^1.0.0",
     "ufo": "^1.1.1",
     "vue": "^3.2.47",

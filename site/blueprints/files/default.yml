@@ -1,0 +1,14 @@
+title: File
+
+sections:
+  link:
+    type: info
+    text: "{{file.url}}"
+  fields:
+    type: fields
+    fields:
+      alt:
+        type: text
+      caption:
+        type: textarea
+        buttons: false

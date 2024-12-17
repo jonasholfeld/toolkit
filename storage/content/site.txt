@@ -1,5 +1,79 @@
-Title: Mægazine
+Title: Gustav Koernig
 
 ----
 
-Description: Simple, almost identical port of the Kirby 3 starterkit frontend to Vue.js. Head over to https://github.com/johannschopplich/kirby-vue3-starterkit for more details about the project.
+Infocolor: #A2AA00
+
+----
+
+Workcolor: #AB7EFF
+
+----
+
+Infoheader: Wanderausstellung
+
+----
+
+Description: 
+
+----
+
+Subtitle: Disziplinierung in Venerologischen Stationen und Spezialheimen der DDR
+
+----
+
+Startpicture: - file://79ISzVjkGRxgZapc
+
+----
+
+Startpicture-inverted: - file://kk6aXdTfcVc6Dvkw
+
+----
+
+Mapicture: - file://zAJaDB7h5IQSUeMF
+
+----
+
+Standort: <p><strong>AKTUELLER STANDORT:</strong></p><p>MORITZBASTEI HALLE / SAALE<br>28.02.-15.04.2025</p>
+
+----
+
+Logos:
+
+- file://b9ly8Mk3zKPkd7Jb
+- file://54upc8vqZVxzTPui
+- file://2Y5jpYmXnASmBZtl
+- file://lU7ZCGwrR0jDDg1I
+
+----
+
+Filemanager: 
+
+----
+
+Mpapicture: - file://ieQ08FeqBl5NSiAX
+
+----
+
+Illustrations:
+
+- 
+  cover:
+    - file://roVBjXv8T1wznesw
+  title: Publikation Titel
+  url: ""
+- 
+  cover:
+    - file://jsJwOwAj6xlQmn3A
+  title: Noch ein Titel...
+  url: ""
+- 
+  cover:
+    - file://oJZOyFtzXsQkMrxG
+  title: Ein Titel der Produktion
+  url: ""
+- 
+  cover:
+    - file://AD4aRw9eNCf7gpR1
+  title: Der Frischkäse ist im 1. Stock
+  url: ""

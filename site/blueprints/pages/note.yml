@@ -1,11 +1,6 @@
 # Each page blueprint must have a title, the title may be different from the file name
 title: Note
 
-# Sorting number scheme that is applied when page status is changed to `listed`
-# More about page sorting: https://getkirby.com/docs/reference/panel/blueprints/page#sorting
-num: date
-
-# Each page can have an icon that is shown in page listings when no preview image is available.
 icon: 📖
 
 # Custom descriptions for each page status depending on use case
@@ -28,9 +23,31 @@ columns:
   - width: 2/3
     # This columns only has a single field
     fields:
+      sonderzeichen:
+        type: info
+        label:
+        text: " Anführungszeichen DE:  “” | Anführungszeichen EN:  „“ | Apostroph:  ’ | Gedankenstrich:  – | Mal-Zeichen: × | Copyright:  ©"
+      infotext:
+        type: writer
+        size: small
+        label: Info Text
+        marks:
+          - link
+          - email
       text:
-        type: textarea
+        type: writer
         size: large
+        nodes: false
+        marks:
+          - link
+          - email
+      endnotes:
+        type: writer
+        size: medium
+        label: Press
+        marks:
+          - link
+          - email
 
   - width: 1/3
     # This second column holds a fields section with multiple fields
@@ -39,22 +56,38 @@ columns:
       meta:
         type: fields
         fields:
+          gallery:
+            type: files
+            uploads: image
+            query: site.files.add(site.index.files)
           date:
             type: date
             time: true
             default: now
+          zeitraum:
+            type: text
+            label: Zeitraum (Teaching)
+          publication:
+            type: toggle
+            default: false
+            label: Publikation
+          buylink:
+            type: url
+            label: Buy-Link
           author:
-            type: users
-          # Fields types can be added using the shortcut `fieldname: true`
-          # (however, you can only use a fieldname once per page and this only makes sense for simple fields without configuration)
-          tags: true
-          gallery:
-            type: pages
-            query: kirby.page("photography").children
-            multiple: false
-            info: "{{ page.images.count }} image(s)"
-            empty: "No gallery selected"
-            image:
-              cover: true
-            # Use the `help` property of fields and section to provide editors with helpful information
-            help: Place the {{ gallery }} tag anywhere in your text to add the selected gallery
+            type: text
+            label: Autor (Writing)
+          year:
+            type: number
+            label: Jahr (About Sortierung)
+          category:
+            label: Category
+            type: multiselect
+            options:
+              type: query
+              query: page.parent.categories.toStructure
+              text: "{{ item.category }}"
+              value: "{{ item.category }}"
+          description:
+            label: Website Meta Beschreibung (SEO)
+            type: textarea
