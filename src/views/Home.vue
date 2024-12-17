@@ -551,7 +551,7 @@ onUnmounted(() => {
   padding-bottom: 4.275rem;
   @include mobile {
     flex-direction: column;
-    height: calc(100vh - 20rem);
+    height: calc(100svh - 20rem);
     width: 100%;
     transform: none;
     gap: 3rem;

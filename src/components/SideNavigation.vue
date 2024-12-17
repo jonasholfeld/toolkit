@@ -102,6 +102,7 @@ const animateBounce = () => {
 <style lang="scss">
 .home-link:hover {
   background-color: var(--hoverbackground) !important;
+  border: 1px solid transparent !important;
 }
 .side-navigation {
   position: fixed; /* Keeps the navigation fixed to the side */
@@ -146,15 +147,23 @@ const animateBounce = () => {
     background-color: white;
     &.segment-link:hover {
       background-color: var(--hoverbackground) !important;
+      border: 1px solid transparent !important;
     }
     &.router-link-exact-active {
       background-color: black;
       color: white;
-      border: 1px solid transparent;
       font-style: italic;
     }
     &:nth-child(odd) {
       border-radius: 3rem;
+    }
+  }
+  &.light {
+    .router-link-exact-active {
+      border: 1px solid white;
+    }
+    a:hover {
+      border: 1px solid white;
     }
   }
   &.dark {

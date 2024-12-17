@@ -23,7 +23,7 @@ import SideNavigation from "./../components/SideNavigation.vue";
 import GridOne from "./../components/GridOne.vue";
 import GridTwo from "./../components/GridTwo.vue";
 import WorkNavigation from "./../components/WorkNavigation.vue";
-import { onMounted, ref } from "vue";
+import { onActivated, onMounted, ref } from "vue";
 import { gsap } from "gsap";
 import { useRoute, useRouter } from "vue-router";
 import { store } from "~/modules/store.js";
@@ -40,7 +40,11 @@ router.beforeEach((to, from, next) => {
 });
 const page = usePage();
 const mode = ref(1);
+onActivated(() => {
+  document.body.classList.remove("dark-body");
+});
 onMounted(() => {
+  document.body.classList.remove("dark-body");
   if (
     store.previousRoute &&
     !store.previousRoute.path.startsWith("/arbeiten/")

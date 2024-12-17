@@ -3,11 +3,11 @@
     "file": "assets/HomeNavLink-85abe883.css",
     "src": "HomeNavLink.css"
   },
-  "_HomeNavLink-653fbba9.js": {
+  "_HomeNavLink-52c954cb.js": {
     "css": [
       "assets/HomeNavLink-85abe883.css"
     ],
-    "file": "assets/HomeNavLink-653fbba9.js",
+    "file": "assets/HomeNavLink-52c954cb.js",
     "imports": [
       "main.js"
     ]
@@ -17,7 +17,7 @@
     "src": "assets/images/Minus_groß.svg"
   },
   "main.css": {
-    "file": "assets/main-23566f0b.css",
+    "file": "assets/main-affe2f6a.css",
     "src": "main.css"
   },
   "main.js": {
@@ -25,7 +25,7 @@
       "assets/Minus_groß-0f15bbda.svg"
     ],
     "css": [
-      "assets/main-23566f0b.css"
+      "assets/main-affe2f6a.css"
     ],
     "dynamicImports": [
       "views/Error.vue",
@@ -37,7 +37,7 @@
       "views/Home_copy_241203.vue",
       "views/Workcategory.vue"
     ],
-    "file": "assets/main-43e597f7.js",
+    "file": "assets/main-b1500ea7.js",
     "isEntry": true,
     "src": "main.js"
   },
@@ -49,7 +49,7 @@
     "css": [
       "assets/Error-b4239293.css"
     ],
-    "file": "assets/Error-d6cbb321.js",
+    "file": "assets/Error-c80c248e.js",
     "imports": [
       "main.js"
     ],
@@ -64,9 +64,9 @@
     "css": [
       "assets/Home copy_pre241126-3c586336.css"
     ],
-    "file": "assets/Home copy_pre241126-f04dd11f.js",
+    "file": "assets/Home copy_pre241126-9af14c76.js",
     "imports": [
-      "_HomeNavLink-653fbba9.js",
+      "_HomeNavLink-52c954cb.js",
       "main.js"
     ],
     "isDynamicEntry": true,
@@ -80,23 +80,23 @@
     "css": [
       "assets/Home_copy_241203-51b19111.css"
     ],
-    "file": "assets/Home_copy_241203-15478db1.js",
+    "file": "assets/Home_copy_241203-7430fa69.js",
     "imports": [
-      "_HomeNavLink-653fbba9.js",
+      "_HomeNavLink-52c954cb.js",
       "main.js"
     ],
     "isDynamicEntry": true,
     "src": "views/Home_copy_241203.vue"
   },
   "views/Workcategory.css": {
-    "file": "assets/Workcategory-a23bc1bb.css",
+    "file": "assets/Workcategory-96d9c295.css",
     "src": "views/Workcategory.css"
   },
   "views/Workcategory.vue": {
     "css": [
-      "assets/Workcategory-a23bc1bb.css"
+      "assets/Workcategory-96d9c295.css"
     ],
-    "file": "assets/Workcategory-afbb0657.js",
+    "file": "assets/Workcategory-c2214556.js",
     "imports": [
       "main.js"
     ],

@@ -36,6 +36,9 @@ body {
     overflow: unset;
     padding: 3rem;
   }
+  &.dark-body {
+    background-color: black;
+  }
   &.info {
     @include mobile {
       background-color: black;

@@ -75,6 +75,16 @@ const draggingIndex = ref(null);
 const workFlex = ref(true);
 const isOpen = ref(null);
 
+watch(mode, () => {
+  console.log("mode changed");
+  if (mode.value == "dark") {
+    console.log("dark");
+    document.body.classList.remove("dark-body");
+  } else {
+    document.body.classList.add("dark-body");
+  }
+});
+
 watch(
   () => route.fullPath,
   (newPath, oldPath) => {
