@@ -670,6 +670,9 @@ onUnmounted(() => {
         &.transitionleft {
           transition: left 1s ease, opacity 1s ease !important;
         }
+        @include mobile {
+          pointer-events: none !important;
+        }
       }
       &.hide {
         opacity: 0;
@@ -677,6 +680,7 @@ onUnmounted(() => {
         pointer-events: none;
         @include mobile {
           opacity: 1;
+          pointer-events: all;
         }
       }
       &.empty {
