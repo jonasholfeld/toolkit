@@ -168,7 +168,7 @@ console.log(page);
     height: calc(100svh - 6rem);
     width: 94rem;
   }
-  cursor: url("/assets/images/Minus_groß.svg"), auto;
+  cursor: url("/assets/images/Minus_groß_1.svg"), auto;
   .overlay {
     position: fixed;
     top: 0;
