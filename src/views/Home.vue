@@ -30,6 +30,7 @@
           :canMoveLeft="work.canMoveLeft"
           :canMoveRight="work.canMoveRight"
           :class="[
+            work.id === 0 ? '' : 'draggablework',
             index == 0 && transitionFirstElements ? 'transitionleft' : '',
             work.title === 'empty' ? 'empty' : '',
             work.addClass,
@@ -59,6 +60,7 @@
           :canMoveLeft="info.canMoveLeft"
           :canMoveRight="info.canMoveRight"
           :class="[
+            info.id === 0 ? '' : 'draggableinfo',
             index == 0 && transitionFirstElements ? 'transitionleft' : '',
             info.title === 'empty' ? 'empty' : '',
             info.addClass,
@@ -265,38 +267,28 @@ onMounted(() => {
 const showElements = (elementArray) => {
   console.log(draggableWorks.value, draggableInfos.value);
   if (elementArray == "works") {
+    const workElems = document.querySelectorAll(".draggablework");
+    console.log(workElems);
     if (!showWorkElements.value) {
       showWorkElements.value = true;
-      gsap.set(
-        draggableWorks.value.map((el) => el),
-        { y: -window.innerHeight }
-      );
-      gsap.to(
-        draggableWorks.value.map((el) => el),
-        {
-          y: 0,
-          duration: 1.5,
-          ease: "bounce.out",
-        }
-      );
+      gsap.set(workElems, { y: -window.innerHeight });
+      gsap.to(workElems, {
+        y: 0,
+        duration: 1.5,
+        ease: "bounce.out",
+      });
     } else {
       showWorkElements.value = false;
     }
   } else {
     if (!showInfoElements.value) {
       showInfoElements.value = true;
-      gsap.set(
-        draggableInfos.value.map((el) => el),
-        { y: -window.innerHeight }
-      );
-      gsap.to(
-        draggableInfos.value.map((el) => el),
-        {
-          y: 0,
-          duration: 1.5,
-          ease: "bounce.out",
-        }
-      );
+      gsap.set(".draggableinfo", { y: -window.innerHeight });
+      gsap.to(".draggableinfo", {
+        y: 0,
+        duration: 1.5,
+        ease: "bounce.out",
+      });
     } else {
       showInfoElements.value = false;
     }
