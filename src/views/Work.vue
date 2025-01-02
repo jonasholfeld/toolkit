@@ -31,7 +31,7 @@
     </div>
     <div class="overlay" @click="goBack"></div>
     <button @click="toggleInfoSection">Information</button>
-    <div class="image-wrapper">
+    <div class="image-wrapper" @click="eventuallyToggleInfoSection">
       <figure :class="page.coverimageRatio > 1.1 ? 'landscape' : 'portrait'">
         <img :src="page.coverimage" />
       </figure>
@@ -48,6 +48,7 @@
         'max-width': infoMaxWidth(),
       }"
       @mousedown="startDrag"
+      @touchstart="startTouch"
     >
       <div class="close-me-mobile" @click="toggleInfoSection">
         <svg
@@ -87,6 +88,12 @@ const title = ref(null);
 const infoSection = ref(null);
 defineExpose({ title, infoSection });
 
+async function eventuallyToggleInfoSection() {
+  if (showInfo.value) {
+    showInfo.value = false;
+  }
+}
+
 async function toggleInfoSection() {
   showInfo.value = !showInfo.value;
   console.log("hi");
@@ -111,6 +118,16 @@ function infoMaxWidth() {
 
 function goBack() {
   history.back();
+}
+
+function startTouch(event) {
+  isDragging.value = true;
+  dragOffset.value = {
+    x: event.clientX - position.value.x,
+    y: event.clientY - position.value.y,
+  };
+  document.addEventListener("touchmove", onDrag);
+  document.addEventListener("touchend", stopDrag);
 }
 
 function startDrag(event) {
@@ -221,6 +238,9 @@ console.log(page);
           width: 100%;
           max-height: calc(100vh - 2rem);
           object-fit: contain;
+          @include mobile {
+            width: 100%;
+          }
         }
       }
       &.portrait {
@@ -234,6 +254,7 @@ console.log(page);
           object-fit: contain;
           @include mobile {
             max-width: 100%;
+            max-height: 100%;
             height: unset;
             object-fit: unset;
           }
@@ -255,11 +276,13 @@ console.log(page);
       font-size: $mobileSmallSize;
       position: fixed;
       bottom: 2rem;
-      top: unset !important;
-      transform: translate(-50%, 0);
+      //   top: unset !important;
+      height: fit-content;
+      transform: translate(-50%, -50%);
       background-color: white;
       z-index: 10;
       width: 94rem !important;
+      z-index: 100;
     }
     p {
       margin: 0;
@@ -267,7 +290,7 @@ console.log(page);
     .close-me-mobile {
       display: none;
       @include mobile {
-        display: block;
+        display: none;
         position: absolute;
         top: -1.4rem;
         right: 3.5rem;
@@ -291,7 +314,7 @@ console.log(page);
     * {
       font-size: 1.7rem;
       @include mobile {
-        font-size: $mobileSmallSize;
+        font-size: 3.4rem;
       }
     }
     h1 {

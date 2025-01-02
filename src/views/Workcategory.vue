@@ -99,7 +99,7 @@ onMounted(() => {
       transition: all 0.3s ease;
       box-shadow: 0px 3px 6px #00000029;
       cursor: pointer;
-      @include heading_one;
+      font-size: 1rem;
       &.active {
         background-color: black;
         color: white;

@@ -88,6 +88,8 @@ const toggleMenu = () => {
   @include mobile {
     display: block;
     text-align: center;
+    background-color: white;
+    padding-bottom: 3rem;
     * {
       font-size: $mobileBigSize;
     }

@@ -210,8 +210,8 @@ function startDrag(event, index) {
 <style scoped lang="scss">
 .bottom-navi {
   position: fixed;
-  right: 0;
-  bottom: 0;
+  right: 0.75rem;
+  bottom: 0.75rem;
   display: flex;
   padding: 0.25rem;
   z-index: 100;
@@ -345,7 +345,10 @@ function startDrag(event, index) {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
     &:nth-child(odd) {
-      border-radius: 6rem;
+      border-radius: 2rem;
+      @include mobile {
+        border-radius: 6rem;
+      }
     }
     &.kontakt {
       width: 20rem;
@@ -360,11 +363,11 @@ function startDrag(event, index) {
       height: 50vh;
       @include mobile {
         background-color: black;
-        flex: 6rem 0 0 !important;
-        margin: 0 !important;
-        transform: translateY(1rem);
+        flex: 8rem 0 0 !important;
+        // margin: 0 !important;
+        border: 1px solid white;
         &.open {
-          background-color: white;
+          //   background-color: white;
           flex: 1 !important;
           transform: translateY(0rem);
           margin-top: 1rem !important;
@@ -376,11 +379,12 @@ function startDrag(event, index) {
       height: 60vh;
       @include mobile {
         background-color: black;
-        flex: 6rem 0 0 !important;
-        margin: 0 !important;
+        flex: 8rem 0 0 !important;
+        // margin: 0 !important;
         margin-bottom: 2rem !important;
+        border: 1px solid white;
         &.open {
-          background-color: white;
+          //   background-color: white;
           flex: 1 !important;
           margin-bottom: 2rem !important;
           margin-top: 2rem !important;
@@ -391,15 +395,15 @@ function startDrag(event, index) {
       width: 70rem;
       height: 88vh;
       @include mobile {
-        order: 7;
+        order: 6;
       }
     }
     &.cv {
-      width: 50rem;
+      width: 38rem;
       height: 80vh;
       top: 10vh;
       @include mobile {
-        order: 6;
+        order: 7;
       }
     }
   }
@@ -409,8 +413,8 @@ function startDrag(event, index) {
 }
 .mode-selector {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 0.75rem;
+  right: 0.75rem;
   padding: 0.25rem;
   z-index: 100;
   @include mobile {
@@ -428,7 +432,7 @@ function startDrag(event, index) {
     transition: all 0.3s ease;
     box-shadow: 0px 3px 6px #00000029;
     cursor: pointer;
-    @include heading_one;
+    font-size: 1rem;
     &.active {
       background-color: black;
       color: white;

@@ -9,7 +9,7 @@ $data = [
       'title' => $child->title()->value(),
       'isListed' => $child->isListed(),
       'template' => $child->intendedTemplate()->name(),
-      'thumbnail' => $child->gallery()->toFile()?->resize(600)->url(),
+      'thumbnail' => $child->gallery()->toFile()?->resize(1000)->url(),
       'size' => $child->size()->isEmpty() ? 'small' : $child->size()->value(),
       'ratio' => $child->gallery()->toFile()?->ratio(),
   ])

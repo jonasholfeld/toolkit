@@ -23,11 +23,14 @@ const props = defineProps({
 .works-wrapper {
   display: flex;
   flex-wrap: wrap;
+  @include mobile {
+    gap: 3rem;
+  }
   .single-work {
     width: calc(94.5rem / 5.15);
     height: calc(94.5rem / 5.15);
     @include mobile {
-      width: calc(94rem / 3);
+      width: calc(88rem / 3);
       height: calc(94rem / 3);
     }
     figure {
@@ -38,6 +41,9 @@ const props = defineProps({
       display: flex;
       align-items: center;
       justify-content: center;
+      @include mobile {
+        padding: 0;
+      }
       img {
         box-shadow: 0px 3px 6px #00000029;
       }

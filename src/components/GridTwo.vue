@@ -1,8 +1,9 @@
 <template>
   <div class="works-wrapper">
     <router-link
-      class="single-work"
       v-for="work in works"
+      :key="work.uri"
+      class="single-work"
       :to="'/' + work.uri"
       :class="work.size"
     >
@@ -27,7 +28,7 @@ const props = defineProps({
     // height: calc(94.5rem / 2);
     // outline: 1px solid lightblue;
     &.small {
-      width: 12rem;
+      width: 18.35rem;
       img {
         object-position: top;
       }
@@ -36,12 +37,18 @@ const props = defineProps({
       width: 25rem;
       img {
         object-position: top;
+        box-shadow: 0px 3px 6px #00000029;
+        height: unset;
+        object-fit: unset;
       }
     }
     &.large {
       width: 45rem;
       img {
         object-position: top;
+        box-shadow: 0px 3px 6px #00000029;
+        height: unset;
+        object-fit: unset;
       }
     }
     figure {
@@ -53,6 +60,9 @@ const props = defineProps({
         width: 100%;
         height: 100%;
         object-fit: contain;
+        box-shadow: 0px 3px 6px #00000029;
+        height: unset;
+        object-fit: unset;
       }
     }
   }

@@ -34,7 +34,7 @@ import { useSite } from "~/composables";
 import { computed, onActivated, onMounted, onUnmounted, ref } from "vue";
 import { gsap } from "gsap";
 const route = useRoute();
-const pageTitle = ref("Gustav Koernig");
+const pageTitle = ref("Gustav Körnig");
 import { store } from "~/modules/store.js";
 
 function logViewportRatio() {
@@ -43,7 +43,7 @@ function logViewportRatio() {
     console.log("abkürzungen!!");
     pageTitle.value = "GK";
   } else {
-    pageTitle.value = "Gustav Koernig";
+    pageTitle.value = "Gustav Körnig";
   }
 }
 
@@ -102,7 +102,7 @@ const animateBounce = () => {
 <style lang="scss">
 .home-link:hover {
   background-color: var(--hoverbackground) !important;
-  border: 1px solid transparent !important;
+  border: 1px solid black !important;
 }
 .side-navigation {
   position: fixed; /* Keeps the navigation fixed to the side */
@@ -147,7 +147,7 @@ const animateBounce = () => {
     background-color: white;
     &.segment-link:hover {
       background-color: var(--hoverbackground) !important;
-      border: 1px solid transparent !important;
+      border: 1px solid black !important;
     }
     &.router-link-exact-active {
       background-color: black;
@@ -168,7 +168,7 @@ const animateBounce = () => {
   }
   &.dark {
     a {
-      //   border: 1px solid white;
+      border: 1px solid white;
       background-color: black;
       color: white;
       &:hover {

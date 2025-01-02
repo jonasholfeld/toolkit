@@ -31,13 +31,15 @@ h1 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   width: 100%;
+  background-color: white;
   @include mobile {
     font-size: $mobileBigSize !important;
     text-decoration: none;
     &.impressum,
     &.privatsphare {
-      padding-top: 0;
-      line-height: 1;
+      //   padding-top: 0;
+      //   line-height: 1;
+      background-color: black;
       color: white;
       &.open {
         color: black;
@@ -50,7 +52,7 @@ h1 {
 * {
   font-size: 1rem;
   @include mobile {
-    font-size: $mobileSmallSize;
+    font-size: 4rem;
   }
 }
 </style>

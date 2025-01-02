@@ -92,7 +92,7 @@ h6 {
 .info-section {
   p {
     margin: 0;
-    line-height: 1;
+    line-height: 1.2;
   }
   h1,
   h2,
@@ -128,12 +128,21 @@ h6 {
     tr {
       margin-bottom: 1rem;
       display: block;
+      @include mobile {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 3rem;
+      }
     }
     td {
       padding: 0;
+      vertical-align: top;
     }
     .timespan {
       width: 8rem;
+      @include mobile {
+        width: 100%;
+      }
     }
   }
 }
@@ -172,6 +181,15 @@ h6 {
           border-radius: 3rem;
         }
       }
+    }
+  }
+}
+
+.child.privatsphare,
+.child.impressum {
+  @include mobile {
+    * {
+      color: white !important;
     }
   }
 }
