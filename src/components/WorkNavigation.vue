@@ -78,7 +78,7 @@ const toggleMenu = () => {
 .worknagigation-wrapper {
   width: 95rem;
   display: none;
-  margin-top: 3rem;
+  padding-top: 3rem;
   overflow: hidden;
   position: fixed;
   top: 0;
