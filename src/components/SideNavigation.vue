@@ -1,8 +1,14 @@
 <template>
   <nav ref="bouncyElement" class="side-navigation" :class="[mode]">
-    <router-link to="/" :style="hoverStyle" class="home-link">{{
-      pageTitle
-    }}</router-link>
+    <router-link
+      to="/"
+      :style="{
+        '--infobackground': site?.information.color,
+        '--workbackground': site?.works.color,
+      }"
+      class="home-link"
+      >{{ pageTitle }}</router-link
+    >
     <router-link
       v-if="pathSegments[0] != 'information'"
       to="/information"
