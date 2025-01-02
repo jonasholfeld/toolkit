@@ -193,3 +193,14 @@ h6 {
     }
   }
 }
+
+body {
+  .home-link:hover {
+    background-color: var(--infobackground);
+  }
+  &.info {
+    .home-link:hover {
+      background-color: var(--workbackground);
+    }
+  }
+}
