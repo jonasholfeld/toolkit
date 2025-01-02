@@ -3,6 +3,7 @@
     <h1>{{ site?.title }}</h1>
   </div>
   <div
+    ref="homenavigation"
     class="home-navigation"
     :style="
       '--workcolor: ' +
@@ -29,6 +30,7 @@
           :canMoveLeft="work.canMoveLeft"
           :canMoveRight="work.canMoveRight"
           :class="[
+            index == 0 && transitionFirstElements ? 'transitionleft' : '',
             work.title === 'empty' ? 'empty' : '',
             work.addClass,
             !showWorkElements ? 'hide' : '',
@@ -57,6 +59,7 @@
           :canMoveLeft="info.canMoveLeft"
           :canMoveRight="info.canMoveRight"
           :class="[
+            index == 0 && transitionFirstElements ? 'transitionleft' : '',
             info.title === 'empty' ? 'empty' : '',
             info.addClass,
             !showInfoElements ? 'hide' : '',
@@ -72,7 +75,7 @@
 
 <script setup>
 import { useSite } from "~/composables";
-import { onMounted, onUnmounted, ref, toRaw } from "vue";
+import { onActivated, onMounted, onUnmounted, ref, toRaw } from "vue";
 import { useRouter } from "vue-router";
 import { gsap } from "gsap";
 
@@ -81,11 +84,17 @@ const works = ref([]);
 const infos = ref([]);
 const showWorkElements = ref(false);
 const showInfoElements = ref(false);
+const transitionFirstElements = ref(true);
 const draggableWorks = ref(null);
+const homenavigation = ref(null);
 const draggableInfos = ref(null);
 const initialXWorks = 32 * (window.innerWidth / 100);
 const initialXInfo = 1 * (window.innerWidth / 100);
 const router = useRouter();
+
+onActivated(() => {
+  document.body.classList.remove("dark-body");
+});
 
 const initializeData = async () => {
   try {
@@ -127,7 +136,6 @@ const generateEmptyElement = (initialX, id, label) => {
     if (label == "Arbeiten") {
       return initialX - 5 * vw * (index + 1);
     } else {
-      console.log(initialX);
       return initialX + 5 * vw * (index + 1);
     }
   }
@@ -147,7 +155,6 @@ const generateEmptyElement = (initialX, id, label) => {
 const populateElements = (sourceArray, targetArray, initialX, label, zeroX) => {
   let xOffset;
   if (label == "Arbeiten") {
-    console.log("hi");
     xOffset = initialX;
   }
   targetArray.value[0] = {
@@ -183,23 +190,64 @@ const populateElements = (sourceArray, targetArray, initialX, label, zeroX) => {
   function getLeft(index) {
     const vw = window.innerWidth / 100;
     if (label == "Arbeiten") {
-      return initialX - 5 * vw * (index + 1);
+      return initialX - 5 * vw * (index + 1) + 2;
     } else {
-      console.log(initialX);
       return initialX + 5 * vw * (index + 1);
     }
   }
 };
 
+const resetPlacements = () => {
+  const newInitialXworks = 32 * (window.innerWidth / 100);
+  const newInitialXInfos = 1 * (window.innerWidth / 100);
+  const vw = window.innerWidth / 100;
+  works.value.forEach((work, index) => {
+    if (index == 0) {
+      work.left = newInitialXworks;
+    } else {
+      if (index == 1) {
+        console.log(
+          "left value of first work ",
+          newInitialXworks - 5 * vw * (index + 1)
+        );
+      }
+      work.left = newInitialXworks - 5 * vw * index;
+    }
+  });
+  infos.value.forEach((work, index) => {
+    if (index == 0) {
+      work.left = newInitialXInfos;
+    } else {
+      work.left = newInitialXInfos + 5 * vw * index;
+    }
+  });
+};
+
 onMounted(() => {
+  if (window.innerWidth <= 800) {
+    console.log("mobile!! ");
+    gsap.set(homenavigation.value, { y: -window.innerHeight });
+    gsap.to(homenavigation.value, {
+      y: 0,
+      duration: 1.5,
+      ease: "bounce.out",
+    });
+  }
+  window.addEventListener("resize", () => {
+    resetPlacements();
+  });
   initializeData();
   setTimeout(() => {
     works.value[0].left = initialXWorks;
     infos.value[0].left = initialXInfo;
   }, 500);
+  setTimeout(() => {
+    transitionFirstElements.value = false;
+  }, 2000);
 });
 
 const showElements = (elementArray) => {
+  console.log(draggableWorks, draggableInfos);
   if (elementArray == "works") {
     if (!showWorkElements.value) {
       showWorkElements.value = true;
@@ -244,7 +292,6 @@ let currentURLtoNavigate;
 let mouseDownTime;
 
 const startDrag = (index, workOrInfo, event, url) => {
-  console.log(url);
   currentURLtoNavigate = url;
   clickBeginning = event.clientX;
   mouseDownTime = Date.now();
@@ -517,7 +564,6 @@ const stopDrag = (event) => {
     Math.abs(event.clientX - clickBeginning) < 3 &&
     mouseDownTime - Date.now() < 300
   ) {
-    console.log("click!!!");
     if (currentURLtoNavigate) {
       router.push("/" + currentURLtoNavigate);
     }
@@ -608,14 +654,19 @@ onUnmounted(() => {
       }
       &.heading-category {
         opacity: 1 !important;
-        transition: left 1s ease, opacity 1s ease !important;
         text-decoration: underline !important;
         text-decoration-thickness: 1px !important;
+        transition: opacity 1s ease !important;
         // z-index: 20;
+        pointer-events: all !important;
+        &.transitionleft {
+          transition: left 1s ease, opacity 1s ease !important;
+        }
       }
       &.hide {
         opacity: 0;
         transition: opacity 1s ease;
+        pointer-events: none;
         @include mobile {
           opacity: 1;
         }
