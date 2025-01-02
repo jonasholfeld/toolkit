@@ -196,11 +196,11 @@ h6 {
 
 body {
   .home-link:hover {
-    background-color: var(--infobackground);
+    background-color: var(--workbackground) !important;
   }
   &.info {
     .home-link:hover {
-      background-color: var(--workbackground);
+      background-color: var(--infobackground) !important;
     }
   }
 }
