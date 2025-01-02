@@ -1,6 +1,6 @@
 <template>
   <nav ref="bouncyElement" class="side-navigation" :class="[mode]">
-    <router-link to="/" :style="getHoverStyle" class="home-link">{{
+    <router-link to="/" :style="hoverStyle" class="home-link">{{
       pageTitle
     }}</router-link>
     <router-link
@@ -31,7 +31,7 @@
 <script setup>
 import { useRoute } from "vue-router";
 import { useSite } from "~/composables";
-import { computed, onActivated, onMounted, onUnmounted, ref } from "vue";
+import { computed, onActivated, onMounted, onUnmounted, ref, watch } from "vue";
 import { gsap } from "gsap";
 const route = useRoute();
 const pageTitle = ref("Gustav Körnig");
@@ -74,6 +74,22 @@ const page = usePage(props.parent);
 const pathSegments = useRoute()
   .fullPath.split("/")
   .filter((segment) => segment);
+const hoverStyle = ref({});
+
+watch(
+  () => page.title,
+  (newTitle) => {
+    if (page.title === "Arbeiten") {
+      hoverStyle.value = "--hoverbackground: " + site?.works?.color;
+    } else if (page.title === "Information") {
+      hoverStyle.value = "--hoverbackground: " + site?.information?.color;
+    } else {
+      hoverStyle.value = {};
+    }
+    console.log("here", hoverStyle.value);
+  }
+);
+
 const getHoverStyle = computed(() => {
   if (page.title === "Arbeiten") {
     return { "--hoverbackground": site?.works?.color };
