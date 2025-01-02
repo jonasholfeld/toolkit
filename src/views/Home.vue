@@ -263,6 +263,7 @@ onMounted(() => {
 });
 
 const showElements = (elementArray) => {
+  console.log(draggableWorks.value, draggableInfos.value);
   if (elementArray == "works") {
     if (!showWorkElements.value) {
       showWorkElements.value = true;
@@ -673,6 +674,7 @@ onUnmounted(() => {
         text-decoration-thickness: 1px !important;
         transition: opacity 1s ease !important;
         // z-index: 20;
+        pointer-events: all !important;
         &.transitionleft {
           transition: left 1s ease, opacity 1s ease !important;
         }
@@ -680,6 +682,7 @@ onUnmounted(() => {
       &.hide {
         opacity: 0;
         transition: opacity 1s ease;
+        pointer-events: none;
         @include mobile {
           opacity: 1;
         }
