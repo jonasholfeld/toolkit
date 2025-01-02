@@ -3,11 +3,11 @@
     "file": "assets/HomeNavLink-85abe883.css",
     "src": "HomeNavLink.css"
   },
-  "_HomeNavLink-de99d36b.js": {
+  "_HomeNavLink-4ba5a335.js": {
     "css": [
       "assets/HomeNavLink-85abe883.css"
     ],
-    "file": "assets/HomeNavLink-de99d36b.js",
+    "file": "assets/HomeNavLink-4ba5a335.js",
     "imports": [
       "main.js"
     ]
@@ -17,7 +17,7 @@
     "src": "assets/images/Minus_groß.svg"
   },
   "main.css": {
-    "file": "assets/main-8d5b1c11.css",
+    "file": "assets/main-33bf55c6.css",
     "src": "main.css"
   },
   "main.js": {
@@ -25,7 +25,7 @@
       "assets/Minus_groß-0f15bbda.svg"
     ],
     "css": [
-      "assets/main-8d5b1c11.css"
+      "assets/main-33bf55c6.css"
     ],
     "dynamicImports": [
       "views/Error.vue",
@@ -37,7 +37,7 @@
       "views/Home_copy_241203.vue",
       "views/Workcategory.vue"
     ],
-    "file": "assets/main-c91c9a16.js",
+    "file": "assets/main-b8cca1fa.js",
     "isEntry": true,
     "src": "main.js"
   },
@@ -49,7 +49,7 @@
     "css": [
       "assets/Error-b4239293.css"
     ],
-    "file": "assets/Error-8c758a29.js",
+    "file": "assets/Error-2296f0f6.js",
     "imports": [
       "main.js"
     ],
@@ -64,9 +64,9 @@
     "css": [
       "assets/Home copy_pre241126-3c586336.css"
     ],
-    "file": "assets/Home copy_pre241126-35f6a23b.js",
+    "file": "assets/Home copy_pre241126-368b53b9.js",
     "imports": [
-      "_HomeNavLink-de99d36b.js",
+      "_HomeNavLink-4ba5a335.js",
       "main.js"
     ],
     "isDynamicEntry": true,
@@ -80,9 +80,9 @@
     "css": [
       "assets/Home_copy_241203-51b19111.css"
     ],
-    "file": "assets/Home_copy_241203-1b6ca225.js",
+    "file": "assets/Home_copy_241203-5185fb4c.js",
     "imports": [
-      "_HomeNavLink-de99d36b.js",
+      "_HomeNavLink-4ba5a335.js",
       "main.js"
     ],
     "isDynamicEntry": true,
@@ -96,7 +96,7 @@
     "css": [
       "assets/Workcategory-5e56468d.css"
     ],
-    "file": "assets/Workcategory-671fff43.js",
+    "file": "assets/Workcategory-0ed3fffc.js",
     "imports": [
       "main.js"
     ],
