@@ -228,9 +228,11 @@ const resetPlacements = () => {
 };
 
 const mobileCheck = function () {
-  return getComputedStyle(document.documentElement)
-    .getPropertyValue("--isMobile")
-    .trim();
+  return (
+    getComputedStyle(document.documentElement)
+      .getPropertyValue("--isMobile")
+      .trim() == "true"
+  );
 };
 
 onMounted(() => {

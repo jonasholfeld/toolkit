@@ -139,9 +139,10 @@ function addSlugToRoute(slug) {
   }
 }
 const isMobile = () => {
-  const isMobile = getComputedStyle(document.documentElement)
-    .getPropertyValue("--isMobile")
-    .trim();
+  const isMobile =
+    getComputedStyle(document.documentElement)
+      .getPropertyValue("--isMobile")
+      .trim() == "true";
   return isMobile;
 };
 
