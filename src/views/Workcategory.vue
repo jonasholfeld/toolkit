@@ -100,9 +100,17 @@ onMounted(() => {
       box-shadow: 0px 3px 6px #00000029;
       cursor: pointer;
       font-size: 1rem;
+      &:hover {
+        background-color: black;
+        color: white;
+      }
       &.active {
         background-color: black;
         color: white;
+        &:hover {
+          background-color: white;
+          color: black;
+        }
       }
       &:first-child {
         border-radius: 1.5rem;

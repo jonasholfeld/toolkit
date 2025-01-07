@@ -12,7 +12,7 @@ return [
     ->values(),
     'information' => [
         'color' => page('information')->infocolor()->value(),
-        'children' => page('information')->children()->listed()->flip()
+        'children' => page('information')->children()->listed()
         ->map(fn ($child) => [
             'uri' => $child->uri(),
             'title' => $child->title()->value(),

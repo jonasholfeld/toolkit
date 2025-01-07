@@ -21,9 +21,11 @@ html {
   font-size: 1vw;
   font-family: "Rhetorik", serif;
   position: relative;
+  --isMobile: false;
   @include mobile {
     height: unset;
     overflow: unset;
+    --isMobile: true;
   }
 }
 
@@ -202,5 +204,11 @@ body {
     .home-link:hover {
       background-color: var(--infobackground) !important;
     }
+  }
+}
+
+body.info {
+  .info-section {
+    padding-bottom: 2rem;
   }
 }

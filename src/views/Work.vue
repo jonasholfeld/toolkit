@@ -2,38 +2,30 @@
   <div class="page-wrapper">
     <div class="close-work" @click="goBack">
       <svg
-        id="Ebene_1"
-        version="1.1"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        x="0px"
-        y="0px"
+        version="1.1"
         viewBox="0 0 43 43"
-        style="enable-background: new 0 0 43 43"
-        xml:space="preserve"
-        width="25"
-        height="25"
+        width="40"
+        height="40"
       >
         <g>
-          <path
-            class="st0"
-            d="M21.5,41.7c-11.1,0-20.2-9.1-20.2-20.2c0-11.1,9.1-20.2,20.2-20.2s20.2,9.1,20.2,20.2
-		C41.7,32.7,32.6,41.7,21.5,41.7z"
-          />
-          <path
-            class="st1"
-            d="M21.5,2.3c10.6,0,19.2,8.6,19.2,19.2s-8.6,19.2-19.2,19.2S2.3,32.1,2.3,21.5S10.9,2.3,21.5,2.3 M21.5,0.3
-		C9.8,0.3,0.3,9.8,0.3,21.5s9.5,21.2,21.2,21.2s21.2-9.5,21.2-21.2S33.2,0.3,21.5,0.3L21.5,0.3z"
-          />
+          <g id="Ebene_1">
+            <g id="Ebene_1-2" data-name="Ebene_1">
+              <path
+                class="cls-2"
+                d="M21.5,42C10.2,42,1,32.8,1,21.5S10.2,1,21.5,1s20.5,9.2,20.5,20.5-9.2,20.5-20.5,20.5"
+              />
+              <line class="cls-1" x1="12" y1="21.5" x2="31" y2="21.5" />
+            </g>
+          </g>
         </g>
-        <line class="st2" x1="12" y1="21.5" x2="31" y2="21.5" />
       </svg>
     </div>
     <div class="overlay" @click="goBack"></div>
     <button @click="toggleInfoSection">Information</button>
     <div class="image-wrapper" @click="eventuallyToggleInfoSection">
       <figure :class="page.coverimageRatio > 1.1 ? 'landscape' : 'portrait'">
-        <img :src="page.coverimage" />
+        <img id="current-image" :src="page.coverimage" />
       </figure>
     </div>
     <div class="spacer"></div>
@@ -109,11 +101,7 @@ async function toggleInfoSection() {
 }
 
 function infoMaxWidth() {
-  return (
-    (window.innerHeight - 2 * (window.innerWidth / 100)) *
-      page.coverimageRatio +
-    "px"
-  );
+  return document.getElementById("current-image")?.offsetWidth + "px";
 }
 
 function goBack() {
@@ -230,7 +218,7 @@ console.log(page);
         align-items: center;
       }
       img {
-        box-shadow: 0px 3px 6px #00000029;
+        ////box-shadow: 0px 3px 6px #00000029;
       }
       &.landscape {
         align-items: center;
@@ -340,6 +328,19 @@ console.log(page);
   svg {
     width: 10rem;
     height: 10rem;
+    .cls-1 {
+      fill: none;
+    }
+
+    .cls-1,
+    .cls-2 {
+      stroke: #1d1d1b;
+      stroke-miterlimit: 10;
+    }
+
+    .cls-2 {
+      fill: #fff;
+    }
   }
   .st0 {
     fill: #ffffff;

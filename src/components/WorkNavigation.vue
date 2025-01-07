@@ -107,6 +107,9 @@ const toggleMenu = () => {
       transform: translateY(-3rem);
       a {
         line-height: 1;
+        &:hover {
+          font-style: italic;
+        }
       }
       .home-link {
         padding-bottom: 6rem;

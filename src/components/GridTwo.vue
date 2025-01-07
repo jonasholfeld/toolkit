@@ -5,7 +5,7 @@
       :key="work.uri"
       class="single-work"
       :to="'/' + work.uri"
-      :class="work.size"
+      :class="[work.size, work.ratio > 1 ? 'landscape' : 'portrait']"
     >
       <figure>
         <img :src="work.thumbnail" />
@@ -25,30 +25,46 @@ const props = defineProps({
   display: flex;
   flex-wrap: wrap;
   .single-work {
-    // height: calc(94.5rem / 2);
-    // outline: 1px solid lightblue;
     &.small {
-      width: 18.35rem;
-      img {
-        object-position: top;
+      &.landscape {
+        width: 18.35rem;
+        img {
+          width: 100%;
+        }
+      }
+      &.portrait {
+        height: 9rem;
+        img {
+          height: 100%;
+        }
       }
     }
     &.medium {
-      width: 25rem;
-      img {
-        object-position: top;
-        box-shadow: 0px 3px 6px #00000029;
-        height: unset;
-        object-fit: unset;
+      &.landscape {
+        width: 25rem;
+        img {
+          width: 100%;
+        }
+      }
+      &.portrait {
+        height: 25rem;
+        img {
+          height: 100%;
+        }
       }
     }
     &.large {
-      width: 45rem;
-      img {
-        object-position: top;
-        box-shadow: 0px 3px 6px #00000029;
-        height: unset;
-        object-fit: unset;
+      &.landscape {
+        width: 45rem;
+        img {
+          width: 100%;
+        }
+      }
+      &.portrait {
+        height: 40rem;
+        img {
+          height: 100%;
+        }
       }
     }
     figure {
@@ -60,7 +76,7 @@ const props = defineProps({
         width: 100%;
         height: 100%;
         object-fit: contain;
-        box-shadow: 0px 3px 6px #00000029;
+        //box-shadow: 0px 3px 6px #00000029;
         height: unset;
         object-fit: unset;
       }
