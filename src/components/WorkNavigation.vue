@@ -5,7 +5,7 @@
     @click="toggleMenu"
   ></div>
   <div class="worknagigation-wrapper" :class="{ open: menuOpen }">
-    <h1 @click="toggleMenu">{{ site.title }}</h1>
+    <h1 class="open-menu-link" @click="toggleMenu">{{ site.title }}</h1>
     <div class="current-route" @click="toggleMenu">
       {{ currentPage }}
     </div>
@@ -65,6 +65,9 @@ const toggleMenu = () => {
 </script>
 
 <style scoped lang="scss">
+.open-menu-link {
+  cursor: pointer;
+}
 .overlay {
   width: 100vw;
   height: 100vh;
