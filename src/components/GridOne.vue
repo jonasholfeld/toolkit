@@ -27,7 +27,7 @@ const props = defineProps({
     gap: 3rem;
   }
   .single-work {
-    width: calc(94.5rem / 5.15);
+    width: calc(94.5rem / 5.18);
     height: calc(94.5rem / 5.15);
     @include mobile {
       width: calc(85rem / 3);
