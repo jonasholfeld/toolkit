@@ -35,6 +35,7 @@ h1 {
   @include mobile {
     font-size: $mobileBigSize !important;
     text-decoration: none;
+    height: 8rem;
     &.impressum,
     &.privatsphare {
       //   padding-top: 0;

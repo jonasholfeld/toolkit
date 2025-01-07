@@ -14,7 +14,9 @@
       class="navigation-menu-toggle"
       :class="{ open: menuOpen, startanimation: startanimation }"
     >
-      <RouterLink to="/" class="home-link">Gustav Körnig</RouterLink>
+      <RouterLink to="/" class="home-link a" @click="toggleMenu"
+        >Gustav Körnig</RouterLink
+      >
       <div class="work-link">Arbeiten</div>
       <RouterLink
         v-for="child in page?.children || []"
