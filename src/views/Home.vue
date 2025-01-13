@@ -240,18 +240,19 @@ onMounted(() => {
     console.log("mobile!! ");
     gsap.set(infonavigation.value, { y: -window.innerHeight });
     gsap.set(worknavigation.value, { y: -window.innerHeight });
-    gsap.to(worknavigation.value, {
+
+    gsap.to(infonavigation.value, {
       y: 0,
       duration: 1.5,
       ease: "bounce.out",
     });
     setTimeout(() => {
-      gsap.to(infonavigation.value, {
+      gsap.to(worknavigation.value, {
         y: 0,
         duration: 1.5,
         ease: "bounce.out",
       });
-    }, 200);
+    }, 500);
   }
   window.addEventListener("resize", () => {
     resetPlacements();

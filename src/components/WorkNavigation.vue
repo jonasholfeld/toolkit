@@ -98,6 +98,13 @@ const toggleMenu = () => {
     * {
       font-size: $mobileBigSize;
     }
+    cursor: pointer;
+    &:hover {
+      .open-menu-link,
+      .current-route {
+        font-style: italic;
+      }
+    }
     .navigation-menu-toggle {
       display: flex;
       flex-direction: column;

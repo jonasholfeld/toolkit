@@ -11,8 +11,22 @@
       ref="modeselector"
       class="mode-selector"
     >
-      <button :class="{ active: mode == 1 }" @click="mode = 1">1</button>
-      <button :class="{ active: mode == 2 }" @click="mode = 2">2</button>
+      <button
+        :class="{ active: mode == 1, hovering: hoveredButton === 2 }"
+        @click="mode = 1"
+        @mouseover="hoveredButton = 1"
+        @mouseleave="hoveredButton = null"
+      >
+        1
+      </button>
+      <button
+        :class="{ active: mode == 2, hovering: hoveredButton === 1 }"
+        @click="mode = 2"
+        @mouseover="hoveredButton = 2"
+        @mouseleave="hoveredButton = null"
+      >
+        2
+      </button>
     </div>
   </div>
 </template>
@@ -40,6 +54,7 @@ router.beforeEach((to, from, next) => {
 });
 const page = usePage();
 const mode = ref(1);
+const hoveredButton = ref(null);
 onActivated(() => {
   document.body.classList.remove("dark-body");
 });
@@ -104,10 +119,18 @@ onMounted(() => {
         background-color: black;
         color: white;
       }
+      &.hovering {
+        background-color: black;
+        color: white;
+      }
       &.active {
         background-color: black;
         color: white;
         &:hover {
+          background-color: white;
+          color: black;
+        }
+        &.hovering {
           background-color: white;
           color: black;
         }

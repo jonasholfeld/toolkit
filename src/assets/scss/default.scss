@@ -95,6 +95,9 @@ h6 {
   p {
     margin: 0;
     line-height: 1.2;
+    a {
+      text-decoration: underline;
+    }
   }
   h1,
   h2,
@@ -209,7 +212,9 @@ body {
 
 body.info {
   .info-section {
-    padding-bottom: 2rem;
+    @include mobile {
+      padding-bottom: 2rem;
+    }
   }
 }
 
@@ -220,4 +225,31 @@ body {
   }
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: 0; /* Firefox */
+}
+
+@include mobile {
+  .information-content-wrapper {
+    .child:hover:not(.open) {
+      background-color: black;
+      border: 1px solid white;
+      transition: flex 0.3s ease;
+      * {
+        background-color: black;
+        color: white;
+      }
+    }
+    .child.impressum:hover:not(.open),
+    .child.privatsphare:hover:not(.open) {
+      background-color: white !important;
+      border: 1px solid black !important;
+      transition: flex 0.3s ease;
+      * {
+        background-color: white !important;
+        color: black !important;
+      }
+    }
+  }
+  .mobile-only-work-link:hover {
+    font-style: italic;
+  }
 }

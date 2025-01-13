@@ -25,7 +25,7 @@
           flex: childPositions[index].flex,
         }"
         @mousedown="startDrag($event, index)"
-        @click="bringToTop(index)"
+        @click="bringToTop($event, index)"
       >
         <InfoChild
           :pagedata="child"
@@ -36,16 +36,26 @@
       </div>
       <div class="mobile-only-top-navigation">
         <h1>
-          <RouterLink to="/">{{ site.title }}</RouterLink>
+          <RouterLink to="/" class="navi-link">{{ site.title }}</RouterLink>
         </h1>
         <div class="current-route">Information</div>
       </div>
     </div>
     <div class="mode-selector">
-      <button :class="{ active: mode == 'dark' }" @click="mode = 'dark'">
+      <button
+        :class="{ active: mode == 'dark', hovering: hoveredButton === 2 }"
+        @click="mode = 'dark'"
+        @mouseover="hoveredButton = 1"
+        @mouseleave="hoveredButton = null"
+      >
         1
       </button>
-      <button :class="{ active: mode == 'light' }" @click="mode = 'light'">
+      <button
+        :class="{ active: mode == 'light', hovering: hoveredButton === 1 }"
+        @click="mode = 'light'"
+        @mouseover="hoveredButton = 2"
+        @mouseleave="hoveredButton = null"
+      >
         2
       </button>
     </div>
@@ -74,6 +84,7 @@ const indexToSlugMapping = {};
 const draggingIndex = ref(null);
 const workFlex = ref(true);
 const isOpen = ref(null);
+const hoveredButton = ref(null);
 
 watch(mode, () => {
   console.log("mode changed");
@@ -90,7 +101,7 @@ watch(
   (newPath, oldPath) => {
     const routeSegments = newPath.split("/").filter((segment) => segment);
     if (routeSegments.length > 1 && routeSegments[0] == "information") {
-      bringToTop(slugToIndexMapping[routeSegments[1]]);
+      bringToTop(null, slugToIndexMapping[routeSegments[1]]);
     }
   }
 );
@@ -115,7 +126,7 @@ watch(
         .split("/")
         .filter((segment) => segment);
       if (routeSegments.length > 1) {
-        bringToTop(slugToIndexMapping[routeSegments[1]]);
+        bringToTop(null, slugToIndexMapping[routeSegments[1]]);
       }
     }
   }
@@ -146,14 +157,23 @@ const isMobile = () => {
   return isMobile;
 };
 
-function bringToTop(index) {
+function bringToTop(event, index) {
   if (isMobile()) {
-    isOpen.value = index;
-    workFlex.value = false;
-    childPositions.value.forEach((e) => {
-      e.flex = "0 0 8rem";
-    });
-    childPositions.value[index].flex = "1 0 0";
+    if (event?.target?.tagName == "H1" && index == isOpen.value) {
+      console.log("closer!!");
+      childPositions.value.forEach((e) => {
+        e.flex = "0 0 8rem";
+      });
+      workFlex.value = true;
+      isOpen.value = null;
+    } else {
+      isOpen.value = index;
+      workFlex.value = false;
+      childPositions.value.forEach((e) => {
+        e.flex = "0 0 8rem";
+      });
+      childPositions.value[index].flex = "1 0 0";
+    }
   } else {
     const sortedPositions = [...childPositions.value].sort(
       (a, b) => a.zindex - b.zindex
@@ -183,7 +203,7 @@ function startDrag(event, index) {
     const deltaY = e.clientY - initialMouseY;
     childPositions.value[index].left = initialLeft + deltaX;
     childPositions.value[index].top = initialTop + deltaY;
-    bringToTop(index);
+    bringToTop(null, index);
   }
 
   // Stop dragging on mouseup
@@ -231,6 +251,11 @@ function startDrag(event, index) {
     &:nth-child(1) {
       border-radius: 3rem;
     }
+    &:hover {
+      background-color: white;
+      color: black;
+      border: 1px solid black;
+    }
     &.router-link-exact-active {
       background-color: white;
       border: 1px solid black;
@@ -244,6 +269,9 @@ function startDrag(event, index) {
     display: none;
   }
 }
+.navi-link:hover {
+  font-style: italic;
+}
 .mobile-only-top-navigation {
   font-size: $mobileBigSize !important;
   @include mobile {
@@ -254,10 +282,11 @@ function startDrag(event, index) {
   position: relative;
   width: 98rem;
   height: calc(100vh - 2rem);
-  overflow: hidden;
+  //   overflow: hidden;
   .spacer {
     @include mobile {
       order: 4;
+      transition: flex 0.3s ease;
       &.flexone {
         flex: 1 0 0;
       }
@@ -328,8 +357,9 @@ function startDrag(event, index) {
       height: 8rem !important;
       width: 94rem !important;
       margin: 1rem 0rem;
-      transition: flex 0.3s ease, background-color 1s ease;
+      transition: flex 0.3s ease;
       padding: 0 3rem;
+      cursor: default;
     }
     &::-webkit-scrollbar {
       display: none;
@@ -425,6 +455,11 @@ function startDrag(event, index) {
     box-shadow: 0px 3px 6px #00000029;
     cursor: pointer;
     font-size: 1rem;
+    &.hovering {
+      background-color: black;
+      color: white;
+      border: 1px solid white;
+    }
     &:hover {
       background-color: black;
       color: white;
@@ -435,6 +470,11 @@ function startDrag(event, index) {
       color: white;
       border: 1px solid white;
       &:hover {
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+      }
+      &.hovering {
         background-color: white;
         color: black;
         border: 1px solid black;

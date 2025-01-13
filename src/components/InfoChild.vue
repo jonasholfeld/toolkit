@@ -36,6 +36,7 @@ h1 {
     font-size: $mobileBigSize !important;
     text-decoration: none;
     height: 8rem;
+    cursor: pointer;
     &.impressum,
     &.privatsphare {
       //   padding-top: 0;

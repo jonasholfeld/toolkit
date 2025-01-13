@@ -157,6 +157,9 @@ console.log(page);
     width: 94rem;
   }
   cursor: url("/assets/images/Minus_groß_1.svg"), auto;
+  @include mobile {
+    cursor: default;
+  }
   .overlay {
     position: fixed;
     top: 0;
@@ -324,6 +327,7 @@ console.log(page);
   height: 6rem;
   @include mobile {
     display: block;
+    cursor: pointer;
   }
   svg {
     width: 10rem;
