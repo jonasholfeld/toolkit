@@ -25,48 +25,39 @@ const props = defineProps({
   display: flex;
   flex-wrap: wrap;
   .single-work {
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
     &.small {
-      width: 9rem;
-      height: 9rem;
       &.landscape {
-        height: 100%;
+        img {
+          height: 9rem;
+        }
       }
       &.portrait {
         img {
-          width: 100%;
+          width: 9rem;
         }
       }
     }
     &.medium {
-      height: 25rem;
-      width: 25rem;
       &.landscape {
         img {
-          width: 100%;
+          width: 25rem;
         }
       }
       &.portrait {
         img {
-          height: 100%;
+          height: 25rem;
         }
       }
     }
     &.large {
-      height: 40rem;
-      width: 40rem;
       &.landscape {
         img {
-          width: 100%;
+          width: 40rem;
         }
       }
       &.portrait {
         img {
-          height: 100%;
+          height: 40rem;
         }
       }
     }
@@ -75,6 +66,9 @@ const props = defineProps({
       height: 100%;
       margin: 0;
       padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       img {
         width: 100%;
         height: 100%;
