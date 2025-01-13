@@ -24,8 +24,6 @@ const props = defineProps({
 .works-wrapper {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 1rem;
-  gap: 1rem 0;
   .single-work {
     img {
       width: 100%;
@@ -76,7 +74,7 @@ const props = defineProps({
       width: 100%;
       height: 100%;
       margin: 0;
-      //   padding: 1rem;
+      padding: 1rem;
       img {
         width: 100%;
         height: 100%;
