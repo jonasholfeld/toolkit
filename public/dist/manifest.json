@@ -3,11 +3,11 @@
     "file": "assets/HomeNavLink-85abe883.css",
     "src": "HomeNavLink.css"
   },
-  "_HomeNavLink-11172f7f.js": {
+  "_HomeNavLink-62743560.js": {
     "css": [
       "assets/HomeNavLink-85abe883.css"
     ],
-    "file": "assets/HomeNavLink-11172f7f.js",
+    "file": "assets/HomeNavLink-62743560.js",
     "imports": [
       "main.js"
     ]
@@ -17,7 +17,7 @@
     "src": "assets/images/Minus_groß_1.svg"
   },
   "main.css": {
-    "file": "assets/main-f02c569b.css",
+    "file": "assets/main-ab14ae23.css",
     "src": "main.css"
   },
   "main.js": {
@@ -25,7 +25,7 @@
       "assets/Minus_groß_1-e23820b2.svg"
     ],
     "css": [
-      "assets/main-f02c569b.css"
+      "assets/main-ab14ae23.css"
     ],
     "dynamicImports": [
       "views/Error.vue",
@@ -39,7 +39,7 @@
       "views/Home_copy_241203.vue",
       "views/Workcategory.vue"
     ],
-    "file": "assets/main-9c685f22.js",
+    "file": "assets/main-919369b6.js",
     "isEntry": true,
     "src": "main.js"
   },
@@ -51,7 +51,7 @@
     "css": [
       "assets/Error-b4239293.css"
     ],
-    "file": "assets/Error-16e07935.js",
+    "file": "assets/Error-6021264b.js",
     "imports": [
       "main.js"
     ],
@@ -66,9 +66,9 @@
     "css": [
       "assets/Home copy_pre241126-3c586336.css"
     ],
-    "file": "assets/Home copy_pre241126-efd879d4.js",
+    "file": "assets/Home copy_pre241126-b9acdff9.js",
     "imports": [
-      "_HomeNavLink-11172f7f.js",
+      "_HomeNavLink-62743560.js",
       "main.js"
     ],
     "isDynamicEntry": true,
@@ -82,7 +82,7 @@
     "css": [
       "assets/Home_copy_21225-bcf68bbe.css"
     ],
-    "file": "assets/Home_copy_21225-e3d34ed8.js",
+    "file": "assets/Home_copy_21225-92becc2f.js",
     "imports": [
       "main.js"
     ],
@@ -97,23 +97,23 @@
     "css": [
       "assets/Home_copy_241203-51b19111.css"
     ],
-    "file": "assets/Home_copy_241203-3a150c0f.js",
+    "file": "assets/Home_copy_241203-58be5574.js",
     "imports": [
-      "_HomeNavLink-11172f7f.js",
+      "_HomeNavLink-62743560.js",
       "main.js"
     ],
     "isDynamicEntry": true,
     "src": "views/Home_copy_241203.vue"
   },
   "views/Workcategory.css": {
-    "file": "assets/Workcategory-269b1712.css",
+    "file": "assets/Workcategory-d7ec8ae7.css",
     "src": "views/Workcategory.css"
   },
   "views/Workcategory.vue": {
     "css": [
-      "assets/Workcategory-269b1712.css"
+      "assets/Workcategory-d7ec8ae7.css"
     ],
-    "file": "assets/Workcategory-ec19c1dc.js",
+    "file": "assets/Workcategory-8215755c.js",
     "imports": [
       "main.js"
     ],

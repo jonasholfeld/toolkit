@@ -453,26 +453,16 @@ function startDrag(event, index) {
     align-items: center;
     background-color: white;
     font-family: Rhetorik;
-    transition: all 0.3s ease;
     box-shadow: 0px 3px 6px #00000029;
     cursor: pointer;
     font-size: 1rem;
-    &.hovering {
-      background-color: black;
-      color: white;
-      border: 1px solid white;
-    }
     &:hover {
-      background-color: var(--backroundworks);
+      font-style: italic;
     }
     &.active {
       background-color: black;
       color: white;
       border: 1px solid white;
-      &:hover {
-        background-color: var(--backroundworks);
-        border: 1px solid black;
-      }
     }
     &:first-child {
       border-radius: 1.5rem;

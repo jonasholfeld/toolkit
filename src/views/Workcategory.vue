@@ -114,20 +114,15 @@ onMounted(() => {
       align-items: center;
       background-color: white;
       font-family: Rhetorik;
-      transition: all 0.3s ease;
       box-shadow: 0px 3px 6px #00000029;
       cursor: pointer;
       font-size: 1rem;
       &:hover {
-        background-color: var(--backroundworks);
+        font-style: italic;
       }
       &.active {
         background-color: black;
         color: white;
-        &:hover {
-          color: black;
-          background-color: var(--backroundworks);
-        }
       }
       &:first-child {
         border-radius: 1.5rem;
