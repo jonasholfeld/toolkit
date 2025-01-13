@@ -44,6 +44,7 @@
     <div class="mode-selector">
       <button
         :class="{ active: mode == 'dark', hovering: hoveredButton === 2 }"
+        :style="'--backroundworks:' + site.information.color + ';'"
         @click="mode = 'dark'"
         @mouseover="hoveredButton = 1"
         @mouseleave="hoveredButton = null"
@@ -52,6 +53,7 @@
       </button>
       <button
         :class="{ active: mode == 'light', hovering: hoveredButton === 1 }"
+        :style="'--backroundworks:' + site.information.color + ';'"
         @click="mode = 'light'"
         @mouseover="hoveredButton = 2"
         @mouseleave="hoveredButton = null"
@@ -461,22 +463,14 @@ function startDrag(event, index) {
       border: 1px solid white;
     }
     &:hover {
-      background-color: black;
-      color: white;
-      border: 1px solid white;
+      background-color: var(--backroundworks);
     }
     &.active {
       background-color: black;
       color: white;
       border: 1px solid white;
       &:hover {
-        background-color: white;
-        color: black;
-        border: 1px solid black;
-      }
-      &.hovering {
-        background-color: white;
-        color: black;
+        background-color: var(--backroundworks);
         border: 1px solid black;
       }
     }

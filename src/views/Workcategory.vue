@@ -13,6 +13,7 @@
     >
       <button
         :class="{ active: mode == 1, hovering: hoveredButton === 2 }"
+        :style="'--backroundworks:' + site?.works.color + ';'"
         @click="mode = 1"
         @mouseover="hoveredButton = 1"
         @mouseleave="hoveredButton = null"
@@ -21,6 +22,7 @@
       </button>
       <button
         :class="{ active: mode == 2, hovering: hoveredButton === 1 }"
+        :style="'--backroundworks:' + site?.works.color + ';'"
         @click="mode = 2"
         @mouseover="hoveredButton = 2"
         @mouseleave="hoveredButton = null"
@@ -32,7 +34,7 @@
 </template>
 
 <script setup>
-import { usePage } from "~/composables";
+import { usePage, useSite } from "~/composables";
 import SideNavigation from "./../components/SideNavigation.vue";
 import GridOne from "./../components/GridOne.vue";
 import GridTwo from "./../components/GridTwo.vue";
@@ -41,6 +43,7 @@ import { onActivated, onMounted, ref } from "vue";
 import { gsap } from "gsap";
 import { useRoute, useRouter } from "vue-router";
 import { store } from "~/modules/store.js";
+const site = useSite();
 
 const route = useRoute();
 const router = useRouter();
@@ -116,23 +119,14 @@ onMounted(() => {
       cursor: pointer;
       font-size: 1rem;
       &:hover {
-        background-color: black;
-        color: white;
-      }
-      &.hovering {
-        background-color: black;
-        color: white;
+        background-color: var(--backroundworks);
       }
       &.active {
         background-color: black;
         color: white;
         &:hover {
-          background-color: white;
           color: black;
-        }
-        &.hovering {
-          background-color: white;
-          color: black;
+          background-color: var(--backroundworks);
         }
       }
       &:first-child {

@@ -24,6 +24,8 @@ const props = defineProps({
 .works-wrapper {
   display: flex;
   flex-wrap: wrap;
+  padding: 0 1rem;
+  gap: 1rem 0;
   .single-work {
     img {
       width: 100%;
@@ -31,40 +33,40 @@ const props = defineProps({
       object-fit: contain;
     }
     &.small {
+      width: 9rem;
+      height: 9rem;
       &.landscape {
-        max-width: 18.35rem;
-        height: 9rem;
+        height: 100%;
       }
       &.portrait {
-        height: 9rem;
         img {
-          height: 100%;
+          width: 100%;
         }
       }
     }
     &.medium {
+      height: 25rem;
+      width: 25rem;
       &.landscape {
-        height: 25rem;
         img {
           width: 100%;
         }
       }
       &.portrait {
-        height: 25rem;
         img {
           height: 100%;
         }
       }
     }
     &.large {
+      height: 40rem;
+      width: 40rem;
       &.landscape {
-        height: 40rem;
         img {
           width: 100%;
         }
       }
       &.portrait {
-        height: 40rem;
         img {
           height: 100%;
         }
@@ -74,7 +76,7 @@ const props = defineProps({
       width: 100%;
       height: 100%;
       margin: 0;
-      padding: 1rem;
+      //   padding: 1rem;
       img {
         width: 100%;
         height: 100%;

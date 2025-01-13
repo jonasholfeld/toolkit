@@ -323,8 +323,8 @@ console.log(page);
   top: 3rem;
   right: 3rem;
   box-shadow: 0px 3px 6px #00000029;
-  border-radius: 3rem;
-  height: 6rem;
+  border-radius: 10rem;
+  height: 10rem;
   @include mobile {
     display: block;
     cursor: pointer;
@@ -332,6 +332,7 @@ console.log(page);
   svg {
     width: 10rem;
     height: 10rem;
+    transform: translateY(-0.1rem) scale(1.03);
     .cls-1 {
       fill: none;
     }
