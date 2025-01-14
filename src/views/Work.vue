@@ -105,7 +105,14 @@ function infoMaxWidth() {
 }
 
 function goBack() {
-  history.back();
+  if (
+    document.referrer &&
+    new URL(document.referrer).origin === window.location.origin
+  ) {
+    history.back();
+  } else {
+    window.location.href = "/arbeiten";
+  }
 }
 
 function startTouch(event) {
