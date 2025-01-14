@@ -29,11 +29,13 @@ const props = defineProps({
       &.landscape {
         img {
           height: 9rem;
+          width: auto;
         }
       }
       &.portrait {
         img {
           width: 9rem;
+          height: auto;
         }
       }
     }
@@ -41,11 +43,13 @@ const props = defineProps({
       &.landscape {
         img {
           width: 25rem;
+          height: auto;
         }
       }
       &.portrait {
         img {
           height: 25rem;
+          width: auto;
         }
       }
     }
@@ -53,11 +57,13 @@ const props = defineProps({
       &.landscape {
         img {
           width: 40rem;
+          height: auto;
         }
       }
       &.portrait {
         img {
           height: 40rem;
+          width: auto;
         }
       }
     }
