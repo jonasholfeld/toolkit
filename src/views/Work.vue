@@ -111,7 +111,10 @@ function goBack() {
   ) {
     history.back();
   } else {
-    window.location.href = "/arbeiten";
+    // Trim the last segment of the current URL
+    const path = window.location.pathname;
+    const trimmedPath = path.substring(0, path.lastIndexOf("/"));
+    window.location.href = trimmedPath || "/";
   }
 }
 
