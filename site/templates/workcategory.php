@@ -9,9 +9,9 @@ $data = [
       'title' => $child->title()->value(),
       'isListed' => $child->isListed(),
       'template' => $child->intendedTemplate()->name(),
-      'thumbnail' => $child->gallery()->toFile()?->resize(1000)->url(),
+      'thumbnail' => $child->gallery()->toFile()?->thumb(['width' =>1000])->url(),
       'size' => $child->size()->isEmpty() ? 'small' : $child->size()->value(),
-      'ratio' => $child->gallery()->toFile()?->ratio(),
+      'ratio' => $child->gallery()->toFile()?->thumb(['width' => 1000])->ratio(),
   ])
   ->values(),
   'additionalraster' => $page->additionalraster()->toBoolean()->value(),

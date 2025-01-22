@@ -6,6 +6,9 @@ return [
     'scssNestedCheck' => true,
     'languages' => env('KIRBY_MULTILANG', false),
     'languages.detect' => env('KIRBY_MULTILANG_DETECT', false),
+    'thumbs' => [
+        'driver' => 'im'
+        ],
 
     'panel' => [
         'install' => env('KIRBY_PANEL_INSTALL', false),
