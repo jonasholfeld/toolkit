@@ -166,7 +166,7 @@ console.log(page);
     height: calc(100svh - 6rem);
     width: 94rem;
   }
-  cursor: url("/assets/images/Minus_groß_1.svg"), auto;
+  cursor: url("/assets/images/Minus_groß_1.svg") 15 15, auto;
   @include mobile {
     cursor: default;
   }
@@ -198,6 +198,8 @@ console.log(page);
     display: flex;
     align-items: flex-end;
     line-height: 0.6;
+    padding-top: 2.8rem;
+    // padding-right: 1.8rem;
     @include mobile {
       font-size: $mobileBigSize;
       position: fixed;
