@@ -622,6 +622,9 @@ onUnmounted(() => {
       text-align: center;
       pointer-events: all;
       transition: top 0.5s ease;
+      -webkit-user-select: none; /* Safari */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none; /* Standard syntax */
       &::before {
         content: "";
         width: 17rem;
