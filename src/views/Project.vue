@@ -436,6 +436,7 @@ onMounted(() => {
       margin-bottom: 7rem;
       margin-top: 1rem;
       transition: margin-bottom 1s ease;
+      padding-left: 0.4rem;
       .single-category {
         cursor: pointer;
         @include whiteBubble;
