@@ -106,7 +106,10 @@
               d="m50.97,65.96h131.72c-11.61-5.2-19.34-14.46-19.34-25.02s7.69-19.78,19.25-24.98H50.88l.08,50Z"
             />
           </svg>
-          <p>
+          <p v-if="index == 0">
+            {{ category.name.substring(0, 4) }}
+          </p>
+          <p v-else>
             {{ category.name }}
           </p>
         </div>
@@ -469,6 +472,7 @@ onMounted(() => {
           margin: 0;
           z-index: 1;
           position: relative;
+          text-transform: uppercase;
         }
         &:first-child {
           background-color: transparent;
@@ -478,7 +482,7 @@ onMounted(() => {
           border-radius: 0 !important;
           padding-left: 0.6rem !important;
           margin-left: 0.6rem;
-          margin-right: 0.5rem;
+          margin-right: -0.7rem;
           &:hover {
             svg {
               path {
@@ -492,7 +496,7 @@ onMounted(() => {
             left: -3.5rem;
             z-index: 0;
             height: 4.08rem;
-            width: 14rem;
+            width: 12rem;
             -webkit-filter: drop-shadow(0px 3px 6px #00000029);
             filter: drop-shadow(0px 3px 6px #00000029);
             path {
@@ -504,6 +508,7 @@ onMounted(() => {
           background-color: transparent;
           position: relative;
           box-shadow: none;
+          margin-left: 1rem;
           &:hover {
             svg {
               path {
@@ -517,7 +522,7 @@ onMounted(() => {
             right: 0rem;
             z-index: 0;
             height: 4.08rem;
-            width: 8rem;
+            width: 10rem;
             -webkit-filter: drop-shadow(0px 3px 6px #00000029);
             filter: drop-shadow(0px 3px 6px #00000029);
             path {
