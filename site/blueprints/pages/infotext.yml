@@ -1,0 +1,39 @@
+title: Infotext
+num: false
+columns:
+  - width: 1
+    fields:
+      displaytitle:
+        type: textarea
+        buttons: false
+        label: Anzeigetitel
+        width: 1/2
+      editor:
+        type: blocks
+        label: Blocks-Editor
+        fieldsets:
+          - heading
+          - text
+          - image
+          - type: centered
+            extends: blocks/text
+            name: Zentrierter Text
+          - type: indented
+            extends: blocks/text
+            name: Eingerückter Text
+          begincolor:
+            name: Start Farbiger Container
+            icon: add
+            wysiwyg: true
+            preview: fields
+          endcolor:
+            name: Ende Farbiger Container
+            icon: add
+            wysiwyg: true
+          embed:
+            name: Externe Inhalte Einbetten
+            wysiwyg: true
+            preview: fields
+            fields:
+              embed:
+                type: embed

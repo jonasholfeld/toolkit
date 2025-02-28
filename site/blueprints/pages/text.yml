@@ -1,0 +1,66 @@
+title: Text
+num: false
+columns:
+  - width: 1
+    fields:
+      author:
+        type: text
+        width: 1/2
+      category:
+        type: select
+        required: true
+        width: 1/2
+        options:
+          type: query
+          query: page.parent.categories.toStructure
+          text: "{{ item.name }}"
+          value: "{{ item.name }}"
+      displaytitle:
+        type: textarea
+        buttons: false
+        label: Anzeigetitel
+        width: 1/2
+  - width: 1
+    fields:
+      editor:
+        type: blocks
+        label: Blocks-Editor
+        fieldsets:
+          - heading
+          - text
+          - image
+          - type: centered
+            extends: blocks/text
+            name: Zentrierter Text
+          - type: indented
+            extends: blocks/text
+            name: Eingerückter Text
+          begincolor:
+            name: Start Farbiger Container
+            icon: add
+            wysiwyg: true
+            preview: fields
+          endcolor:
+            name: Ende Farbiger Container
+            icon: add
+            wysiwyg: true
+          embed:
+            name: Externe Inhalte Einbetten
+            wysiwyg: true
+            preview: fields
+            fields:
+              embed:
+                type: embed
+      related:
+        type: multiselect
+        width: 1/2
+        label: Verwandte Texte (Verlinkung)
+        options:
+          type: query
+          query: page.parent.children.listed
+          text: "{{ item.title }}"
+          value: "{{ item.id }}"
+      download:
+        type: files
+        width: 1/2
+        multiple: false

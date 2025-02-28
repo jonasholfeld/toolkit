@@ -1,0 +1,38 @@
+title: Projekt
+
+columns:
+  - width: 1/2
+    sections:
+      fieldstop:
+        type: fields
+        fields:
+          longtitle:
+            type: textarea
+            buttons: false
+            label: Anzeige-Titel
+      children:
+        type: pages
+        headline: Texte
+        template: text
+        sortBy: title asc
+        layout: table
+        columns:
+          category: true
+  - width: 1/2
+    sections:
+      fields:
+        type: fields
+        fields:
+          color:
+            type: color
+          categories:
+            type: structure
+            label: Text Kategorien
+            fields:
+              name:
+                type: text
+              color:
+                type: color
+              invertOnHover:
+                label: Weiße Schrift bei Mouseover?
+                type: toggle

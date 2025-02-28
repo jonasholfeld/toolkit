@@ -8,11 +8,12 @@ tabs:
       - width: 1/2
         sections:
           information:
-            label: Unterseiten
+            label: Projekte
             type: pages
             templates:
-              - infohub
-              - works
+              - project
+              - projectlink
+              - infotext
       - width: 1/2
         sections:
           fieldsr:

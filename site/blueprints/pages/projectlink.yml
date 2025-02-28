@@ -1,0 +1,17 @@
+title: Projektlink
+
+columns:
+  - width: 1/2
+    sections:
+      fieldsleft:
+        type: fields
+        fields:
+          externallink:
+            type: url
+  - width: 1/2
+    sections:
+      fields:
+        type: fields
+        fields:
+          color:
+            type: color

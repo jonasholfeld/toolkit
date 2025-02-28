@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { useLanguages, useSite } from "~/composables";
 import Default from "~/views/Default.vue";
-import Infohub from "~/views/Infohub.vue";
 import { pascalCase } from "scule";
 import Home from "~/views/Home.vue";
-import Work from "~/views/Work.vue";
+import Project from "~/views/Project.vue";
+import Text from "~/views/Text.vue";
 import { store } from "~/modules/store.js";
 
 const isMobile = () => {
@@ -55,18 +55,17 @@ export const install = (app) => {
       component: Home,
     },
     {
-      path: "/arbeiten",
-      redirect: "/" + site.works.children[0].uri,
-    },
-    {
-      path: "/information",
-      beforeEnter: (to, from, next) => {
-        if (isMobile()) {
-          next("/information/ausstellungen");
-        } else {
-          next();
-        }
-      },
+      path: "/strategien-der-resilienz",
+      component: Project,
+      children: [
+        {
+          path: ":post",
+          component: Text,
+          meta: {
+            showMetaNav: false,
+          },
+        },
+      ],
     },
     ...site.children.map((page) => ({
       path: `/${page.uri}`,
@@ -78,24 +77,6 @@ export const install = (app) => {
         title: page.title,
       },
     })),
-    ...site.works.children.map((page) => ({
-      path: `/${page.uri}`,
-      component: () =>
-        import(`../views/${pascalCase(page.template)}.vue`).catch(
-          () => Default
-        ),
-      meta: {
-        title: page.title,
-      },
-    })),
-    {
-      path: "/arbeiten/:malerei/:workId",
-      component: Work,
-    },
-    {
-      path: "/information/:workId",
-      component: Infohub,
-    },
   ];
   routes.push({ path: "/:pathMatch(.*)*", component: Default });
 

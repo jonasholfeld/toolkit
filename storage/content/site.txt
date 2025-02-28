@@ -1,4 +1,4 @@
-Title: Gustav Körnig
+Title: Toolkit
 
 ----
 
@@ -6,7 +6,7 @@ Infoheader: Wanderausstellung
 
 ----
 
-Description: Gustav Körnig is an artist from
+Description: Ein Projekt des BBK Berlin
 
 ----
 
