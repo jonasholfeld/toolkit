@@ -70,7 +70,8 @@ $data = [
   'category' => $page->category()->value(),
   'download' => $page->download()->toFile()?->url(),
   'slug' => $page->slug(),
-  'color' => $color->value()
+  'color' => $color->value(),
+  'parent' => $page->parent()->slug()
 ];
 
 echo \Kirby\Data\Json::encode($data);

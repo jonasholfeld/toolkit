@@ -138,7 +138,7 @@ const info = ref(false);
     font-size: $text;
     cursor: pointer;
     @include mobile {
-      top: 3.5rem;
+      top: 4.5rem;
       left: 0rem;
       width: 100rem;
     }
@@ -236,6 +236,7 @@ const info = ref(false);
       height: auto;
       top: unset !important;
       left: unset !important;
+      width: 100rem;
     }
     &:hover {
       svg {
@@ -253,6 +254,10 @@ const info = ref(false);
       left: 40rem;
       z-index: 3;
       animation: moveLeft 28s linear infinite alternate;
+      @include mobile {
+        span {
+        }
+      }
     }
     &:nth-child(3) {
       top: 60vh;
@@ -287,6 +292,11 @@ const info = ref(false);
       top: 6rem;
       transform: translate(-50%, -50%);
       text-transform: uppercase;
+      @include mobile {
+        font-size: $textmobile;
+        width: 100vw;
+        top: 10rem;
+      }
     }
   }
 }

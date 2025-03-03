@@ -1,5 +1,18 @@
 <template>
   <div class="inner-text-wrapper" :style="{ '--hc': page.color }">
+    <div class="mobile-menu" @click="goBack">
+      <span>Menü</span>
+      <svg
+        id="Ebene_1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 226.77 85.04"
+      >
+        <path
+          id="Pfad_152"
+          d="m54.99,15.71h116.72c-11.56,5.2-19.25,14.45-19.25,24.98s7.73,19.82,19.34,25.02H55.07l-.08-50Z"
+        />
+      </svg>
+    </div>
     <h2 v-if="page.category != 'Glossar'" v-html="page.title"></h2>
     <h2 v-if="page.category == 'Glossar'">Glossar</h2>
     <div class="author">{{ page.author }}</div>
@@ -12,6 +25,19 @@
       <a :href="page.download" download>Download PDF</a>
     </div>
     <div class="footnotes" v-html="page.footnotes"></div>
+    <div class="mobile-menu bottom" @click="goBack">
+      <span>Menü</span>
+      <svg
+        id="Ebene_1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 226.77 85.04"
+      >
+        <path
+          id="Pfad_157"
+          d="m163.95,69.71H47.24c11.56-5.2,19.25-14.45,19.25-24.98s-7.73-19.82-19.34-25.02h116.72l.08,50Z"
+        />
+      </svg>
+    </div>
   </div>
 </template>
 <script setup>
@@ -25,6 +51,10 @@ onMounted(() => {
     .querySelector(".inner-text-wrapper")
     ?.addEventListener("click", navigate);
 });
+
+const goBack = () => {
+  router.push("/" + page.parent);
+};
 
 onBeforeUnmount(() => {
   document
@@ -100,12 +130,51 @@ onMounted(() => {});
   width: 50rem;
   font-size: $text;
   line-height: 1.1;
+  .mobile-menu {
+    display: none;
+    @include mobile {
+      display: block;
+      width: 100%;
+      height: 10rem;
+      position: relative;
+      margin-bottom: 6rem;
+      span {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 3;
+        transform: translate(-50%, -50%);
+        text-transform: uppercase;
+      }
+      &.bottom {
+        svg {
+          top: -3.57rem !important;
+          left: 18.5rem !important;
+        }
+      }
+      svg {
+        position: absolute;
+        top: -2.57rem !important;
+        left: 20.5rem !important;
+        height: 17.08rem !important;
+        width: 58rem !important;
+        -webkit-filter: drop-shadow(0px 3px 6px #00000029);
+        filter: drop-shadow(0px 3px 6px #00000029);
+        path {
+          fill: $lightgray !important;
+        }
+      }
+    }
+  }
   h2,
   h3 {
     text-transform: uppercase;
     font-size: $text;
     text-align: center;
     margin-bottom: 1rem;
+    @include mobile {
+      font-size: $textmobile;
+    }
   }
   .author {
     text-align: center;
