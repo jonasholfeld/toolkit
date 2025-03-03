@@ -1,6 +1,9 @@
 <template>
   <div class="home-wrapper">
-    <button class="info-button" @click="info = true">INFO</button>
+    <button class="info-button" @click="info = true">
+      <span>INFO</span>
+      <span>INFORMATION</span>
+    </button>
     <div class="datenschutz" :class="{ open: datenschutz }">
       <button class="close" @click="datenschutz = false">x</button>
       <Datenschutz></Datenschutz>
@@ -23,6 +26,7 @@
     </div>
     <div class="presents-wrapper">
       Das bildungswerk des bbk berlin präsentiert:
+      <span>Tool-kits</span>
     </div>
     <div class="navi-wrapper">
       <a
@@ -58,17 +62,18 @@
             d="m437.45,17.39v25.05h-127.55v25.83h-73.56v25.83h-76.69v25.03h-47.74v25.83h-52.44v23.49h-24.25v125.98h826.4v-24.27h126.78v-24.25h101.73v-25.05h75.12v-25.05h48.52v-25.04h26.62V17.39H437.45Z"
           />
         </svg>
+
         <svg
           v-if="index == 2"
           id="Ebene_1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1275.59 311.81"
         >
-          <defs></defs>
-          <polygon
+          <path
+            id="Pfad_142-2"
             class="cls-1"
             :style="{ '--c': project.color }"
-            points="1014.45 174.92 1137.95 297.42 145.85 297.42 173.32 271.33 112.76 271.33 137.67 247.67 85.76 247.67 205.41 134.03 85.76 14.39 1077.86 14.39 1051.48 38.05 1104.86 38.05 1075.77 64.14 1137.95 64.14 1014.45 174.92"
+            d="m930.27,17.39v27.87h-27.87v25.88h-27.79v-26.13h-27.62v-27.62h-167.44v27.87h-27.87v25.88h-27.69v-26.13h-27.62v-27.62h-167.44v27.87h-27.87v26.12h-.01v-.13h-27.86v-26.13h-27.62v-27.62h-167.44v27.87h-27.87v26.12h-27.86v167.2h27.86v27.86h27.87v27.87h167.44v-28.12h27.62v-27.86h.01v.14h27.86v27.87h27.87v27.86h167.44v-28.11h27.62v-27.62h27.69v27.87h27.87v27.86h167.44v-28.11h27.62v-27.62h27.79v27.87h27.87v27.86h167.45v-28.11h27.61v-27.87h27.87V71.14h-27.87v-26.13h-27.61v-27.62h-167.45Z"
           />
         </svg>
       </a>
@@ -106,6 +111,17 @@ const info = ref(false);
 .presents-wrapper {
   padding: 0.8rem 1rem;
   font-size: $text;
+  span {
+    display: none;
+    @include mobile {
+      display: inline;
+      font-style: italic;
+    }
+  }
+  @include mobile {
+    text-align: center;
+    font-size: $textmobile;
+  }
 }
 .home-wrapper {
   width: 100vw;
@@ -121,6 +137,28 @@ const info = ref(false);
     font-family: "Rosart", serif;
     font-size: $text;
     cursor: pointer;
+    @include mobile {
+      top: 3.5rem;
+      left: 0rem;
+      width: 100rem;
+    }
+    span {
+      @include mobile {
+        font-size: $textmobile;
+      }
+      &:first-child {
+        display: block;
+        @include mobile {
+          display: none;
+        }
+      }
+      &:nth-child(2) {
+        display: none;
+        @include mobile {
+          display: block;
+        }
+      }
+    }
   }
   .datenschutz {
     position: absolute;
@@ -178,12 +216,27 @@ const info = ref(false);
 }
 .navi-wrapper {
   height: calc(100vh - 7rem);
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 10rem;
+  }
   .navigatior-wrapper {
     position: relative;
     height: 15rem;
     width: 60rem;
     position: absolute;
     animation: moveRight 30s linear infinite alternate;
+    @include mobile {
+      animation: none !important;
+      left: 0 !important;
+      position: relative;
+      display: block;
+      height: auto;
+      top: unset !important;
+      left: unset !important;
+    }
     &:hover {
       svg {
         .cls-1 {
@@ -212,6 +265,10 @@ const info = ref(false);
       top: 0;
       -webkit-filter: drop-shadow(0px 3px 6px #00000029);
       filter: drop-shadow(0px 3px 6px #00000029);
+      @include mobile {
+        width: 100rem;
+        position: static;
+      }
       .cls-1 {
         fill: white;
       }
