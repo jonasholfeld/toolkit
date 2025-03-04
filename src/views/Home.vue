@@ -151,7 +151,7 @@ const info = ref(false);
   position: relative;
   overflow: hidden;
   @include mobile {
-    height: 100dvh;
+    height: 100svh;
   }
   .info-button {
     position: absolute;
@@ -292,6 +292,7 @@ const info = ref(false);
     flex-direction: column;
     justify-content: space-between;
     padding-top: 10rem;
+    height: calc(100svh - 7rem);
   }
   .navigatior-wrapper {
     position: relative;
