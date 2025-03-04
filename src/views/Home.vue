@@ -150,6 +150,9 @@ const info = ref(false);
   height: 100vh;
   position: relative;
   overflow: hidden;
+  @include mobile {
+    height: 100dvh;
+  }
   .info-button {
     position: absolute;
     top: 0.8rem;
