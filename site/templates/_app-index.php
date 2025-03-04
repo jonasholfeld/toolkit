@@ -17,7 +17,7 @@
   <?= $meta->jsonld() ?>
   <?= $meta->social() ?>
 
-  <meta name="theme-color" content="#e0f1f0">
+  <meta name="theme-color" content="#d9d9d9">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="<?= $site->title()->escape() ?>">
