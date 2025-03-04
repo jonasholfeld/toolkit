@@ -5,11 +5,33 @@
       <span>INFORMATION</span>
     </button>
     <div class="datenschutz" :class="{ open: datenschutz }">
-      <button class="close" @click="datenschutz = false">x</button>
+      <button class="close" @click="datenschutz = false">
+        <svg
+          id="Ebene_1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 26.75 16.32"
+        >
+          <g id="Gruppe_94">
+            <path id="Pfad_111" class="cls-2" d="m26.37,15.66L.37.66" />
+            <path id="Pfad_112" class="cls-1" d="m.38,15.67L26.37.65" />
+          </g>
+        </svg>
+      </button>
       <Datenschutz></Datenschutz>
     </div>
     <div class="info" :class="{ open: info }">
-      <button class="close" @click="info = false">x</button>
+      <button class="close" @click="info = false">
+        <svg
+          id="Ebene_1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 26.75 16.32"
+        >
+          <g id="Gruppe_94">
+            <path id="Pfad_111" class="cls-2" d="m26.37,15.66L.37.66" />
+            <path id="Pfad_112" class="cls-1" d="m.38,15.67L26.37.65" />
+          </g>
+        </svg>
+      </button>
       <Info></Info>
       <button
         class="datenschutz-button"
@@ -167,7 +189,7 @@ const info = ref(false);
     z-index: 5;
     .close {
       position: absolute;
-      top: 1rem;
+      top: -1rem;
       right: 1rem;
       background-color: transparent;
       border: none;
@@ -175,6 +197,22 @@ const info = ref(false);
       font-size: 3rem;
       cursor: pointer;
       z-index: 7;
+      svg {
+        width: 1.3rem;
+        height: 1rem;
+        cls-1 {
+          stroke-miterlimit: 4;
+          stroke-width: 1.5px;
+        }
+        .cls-1,
+        .cls-2 {
+          fill: none;
+          stroke: #000;
+        }
+        .cls-2 {
+          stroke-width: 1.5px;
+        }
+      }
     }
     &.open {
       left: 50rem;
@@ -188,9 +226,13 @@ const info = ref(false);
     box-shadow: 10px 10px 50px #000000;
     width: 50vw;
     height: 100vh;
+    @include mobile {
+      width: 100vw;
+      right: -110rem;
+    }
     .close {
       position: absolute;
-      top: 1rem;
+      top: -1rem;
       right: 1rem;
       background-color: transparent;
       border: none;
@@ -198,6 +240,29 @@ const info = ref(false);
       font-size: 3rem;
       cursor: pointer;
       z-index: 7;
+      @include mobile {
+        top: 1rem;
+      }
+      svg {
+        width: 1.3rem;
+        height: 1.3rem;
+        @include mobile {
+          width: 3.9rem;
+          height: 3.9rem;
+        }
+        cls-1 {
+          stroke-miterlimit: 4;
+          stroke-width: 1.5px;
+        }
+        .cls-1,
+        .cls-2 {
+          fill: none;
+          stroke: #000;
+        }
+        .cls-2 {
+          stroke-width: 1.5px;
+        }
+      }
     }
     .datenschutz-button {
       position: absolute;
@@ -208,6 +273,9 @@ const info = ref(false);
       font-family: "Rosart", serif;
       font-size: $text;
       cursor: pointer;
+      @include mobile {
+        display: none;
+      }
     }
     &.open {
       right: 0rem;

@@ -1,5 +1,21 @@
 <template>
   <div class="project-wrapper" :class="{ 'hide-presents': hasChild }">
+    <div class="datenschutz" :class="{ open: datenschutz }">
+      <button class="close" @click="datenschutz = false">
+        <svg
+          id="Ebene_1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 26.75 16.32"
+        >
+          <defs></defs>
+          <g id="Gruppe_94">
+            <path id="Pfad_111" class="cls-2" d="m26.37,15.66L.37.66" />
+            <path id="Pfad_112" class="cls-1" d="m.38,15.67L26.37.65" />
+          </g>
+        </svg>
+      </button>
+      <Datenschutz></Datenschutz>
+    </div>
     <div class="presents-wrapper">
       Das bildungswerk des bbk berlin präsentiert:
       <span>{{ page.title }}</span>
@@ -118,25 +134,46 @@
           >
             <path
               id="Pfad_152-2"
+              :style="{
+                fill:
+                  openCategories[category.name] && isMobile()
+                    ? 'var(--bc)'
+                    : 'white',
+              }"
               d="m34.32,17.52h168.72c-11.56,5.2-19.25,14.45-19.25,24.98s7.73,19.82,19.34,25.02H34.4l-.08-50Z"
             />
           </svg>
           <p v-if="index == 0 && !isMobile()">
             {{ category.name.substring(0, 4) }}
           </p>
-          <p v-else>
+
+          <p
+            v-else
+            :style="{
+              backgroundColor:
+                openCategories[category.name] && isMobile()
+                  ? 'var(--bc)'
+                  : 'white',
+              color:
+                openCategories[category.name] && index == 0 ? 'white' : 'black',
+            }"
+            @click="toggleCat(category.name)"
+          >
             {{ category.name }}
           </p>
-          <div class="text-links-mobile">
-            <router-link
-              v-for="(text, index) in filterForCat(
-                page.children,
-                category.name
-              )"
-              :key="index"
-              :to="text.uri"
-              v-html="text.title"
-            ></router-link>
+          <div class="text-links-mobile" :data-cat="category.name">
+            <div class="content-wrapper">
+              <router-link
+                v-for="(text, index) in filterForCat(
+                  page.children,
+                  category.name
+                )"
+                :key="index"
+                :to="text.uri"
+                @click="safeScroll()"
+                v-html="text.title"
+              ></router-link>
+            </div>
           </div>
         </div>
         <div
@@ -186,7 +223,7 @@
               hiddenTexts.includes(text.uri) && currentmode == 'einblenden',
           }"
           :active="activeCategory == text.category"
-          @clicked="textZindex++"
+          @clicked="textclicked()"
           @resetAll="resetAll"
           @click="textClicked(text.category, text.uri, $event)"
         ></text-link>
@@ -195,7 +232,7 @@
         bildungswerk des bbk berlin
       </div>
     </div>
-    <div class="presents-wrapper bottom">
+    <div class="presents-wrapper bottom" @click="datenschutz = true">
       <span>Impressum</span>
       <span>Datenschutz</span>
     </div>
@@ -207,6 +244,7 @@ import { usePage } from "~/composables";
 import { nextTick, onMounted, onUnmounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import TextLink from "../components/TextLink.vue";
+import Datenschutz from "../components/Datenschutz.vue";
 
 let page;
 const route = useRoute();
@@ -224,6 +262,43 @@ const buttons = [lesen, ausblenden, einblenden, menu];
 const permanentActiveCategry = ref("");
 const textZindex = 1;
 
+const mobileCat = ref("");
+const openCategories = ref({});
+
+const textclicked = () => {
+  textZindex.value++;
+};
+
+const safeScroll = () => {
+  scrollPoint.value = window.scrollY || document.documentElement.scrollTop;
+  console.log(
+    scrollPoint.value,
+    ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+  );
+};
+
+const toggleCat = (cat) => {
+  if (isMobile()) {
+    if (openCategories.value[cat]) {
+      openCategories.value[cat] = false;
+      nextTick(() => {
+        const el = document.querySelector(`[data-cat="${cat}"]`);
+        if (el) {
+          el.style.height = "0px";
+        }
+      });
+    } else {
+      openCategories.value[cat] = true;
+      nextTick(() => {
+        const el = document.querySelector(`[data-cat="${cat}"]`);
+        if (el) {
+          el.style.height = el.scrollHeight + "px";
+        }
+      });
+    }
+  }
+};
+const datenschutz = ref(false);
 if (route.fullPath.split("/").length > 2) {
   page = usePage(route.fullPath.split("/")[1]);
 } else {
@@ -252,6 +327,8 @@ const hasChild = ref(route.matched.length > 1);
 
 const hiddenTexts = ref([]);
 
+const scrollPoint = ref(0);
+
 const textClicked = (category, uri, event) => {
   if (currentmode.value == "ausblenden") {
     if (route.fullPath != "/" + uri) {
@@ -267,15 +344,24 @@ const textClicked = (category, uri, event) => {
 
 watch(route, () => {
   hasChild.value = route.matched.length > 1;
-  console.log(route.fullPath);
   if (hasChild.value) {
     setActiveCategory("", "", false);
     permanentActiveCategry.value = "";
+  } else {
+    if (isMobile() && scrollPoint.value) {
+      console.log("scrollpoint", scrollPoint.value);
+      //   window.scrollTo(0, scrollPoint.value);
+      //   window.scrollTo({ top: scrollPoint.value, behavior: "smooth" });
+      nextTick(() => {
+        setTimeout(() => {
+          window.scrollTo(0, scrollPoint.value);
+        }, 10);
+      });
+    }
   }
 });
 
 const setActiveCategory = (category, color, invertOnHover) => {
-  console.log(!isMobile());
   if (!permanentCat.value && !isMobile()) {
     activeCategory.value = category;
     activeColor.value = color;
@@ -318,7 +404,6 @@ const filterForCat = (texts, category) => {
 
 onMounted(() => {
   buttons.forEach((bt, index) => {
-    console.log(index);
     if (index !== buttons.length) {
       const button = bt.value;
       const buttonWidth = (button.offsetWidth / window.innerWidth) * 100;
@@ -352,6 +437,10 @@ onMounted(() => {
     width: 100vw;
     height: auto;
     overflow: hidden;
+    min-height: 100dvh;
+    &.has-child {
+      height: 100dvh !important;
+    }
   }
   &.hide-presents {
     @include mobile {
@@ -360,6 +449,52 @@ onMounted(() => {
           display: none !important;
         }
       }
+    }
+  }
+  .datenschutz {
+    position: absolute;
+    left: -50rem;
+    transition: left 1s ease;
+    z-index: 5;
+    @include desktop {
+      display: none;
+    }
+    .close {
+      position: absolute;
+      top: -1rem;
+      right: 1rem;
+      background-color: transparent;
+      border: none;
+      font-family: "Rosart", serif;
+      font-size: 3rem;
+      cursor: pointer;
+      z-index: 7;
+      @include mobile {
+        top: 1rem;
+      }
+      svg {
+        width: 1.3rem;
+        height: 1.3rem;
+        @include mobile {
+          width: 3.9rem;
+          height: 3.9rem;
+        }
+        cls-1 {
+          stroke-miterlimit: 4;
+          stroke-width: 1.5px;
+        }
+        .cls-1,
+        .cls-2 {
+          fill: none;
+          stroke: #000;
+        }
+        .cls-2 {
+          stroke-width: 1.5px;
+        }
+      }
+    }
+    &.open {
+      left: 100rem;
     }
   }
   .presents-wrapper {
@@ -407,6 +542,7 @@ onMounted(() => {
     @include mobile {
       padding: 0;
       height: auto;
+      flex: 1;
     }
     .button-wrapper {
       display: flex;
@@ -580,7 +716,8 @@ onMounted(() => {
             }
           }
           p {
-            background-color: var(--bc);
+            // background-color: var(--bc);
+            background-color: white;
             padding: 3rem 6rem;
             border-radius: 6rem;
             box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
@@ -589,6 +726,9 @@ onMounted(() => {
           }
           .text-links-mobile {
             display: block;
+            height: 0;
+            overflow: hidden;
+            transition: height 0.3s ease-out;
             a {
               p {
                 text-transform: none !important;
@@ -601,7 +741,10 @@ onMounted(() => {
           }
         }
         &.active {
-          background-color: var(--bc);
+          background-color: var(--bc) !important;
+          > p {
+            background-color: var(--bc) !important;
+          }
           &.invert {
             color: white;
             svg {
@@ -612,9 +755,14 @@ onMounted(() => {
           }
         }
         &:hover {
-          background-color: var(--bc);
-          &.invert {
-            color: white;
+          @include desktop {
+            background-color: var(--bc);
+            > p {
+              background-color: transparent !important;
+            }
+            &.invert {
+              color: white;
+            }
           }
         }
         p {
@@ -624,7 +772,7 @@ onMounted(() => {
           text-transform: uppercase;
         }
         &:first-child {
-          background-color: transparent;
+          background-color: transparent !important;
           position: relative;
           box-shadow: none;
           width: 8rem;
@@ -636,7 +784,8 @@ onMounted(() => {
             > p {
               background-color: transparent !important;
               box-shadow: none;
-              color: white;
+              //   color: white;
+              color: black;
             }
             svg {
               top: -2.57rem !important;
@@ -646,14 +795,30 @@ onMounted(() => {
               -webkit-filter: drop-shadow(0px 3px 6px #00000029);
               filter: drop-shadow(0px 3px 6px #00000029);
               path {
-                fill: var(--bc) !important;
+                // fill: var(--bc) !important;
+                fill: white;
               }
             }
           }
+          &.active {
+            > p {
+              background-color: transparent !important;
+            }
+          }
           &:hover {
+            @include desktop {
+              background-color: transparent !important;
+              p {
+                background-color: transparent !important;
+              }
+            }
+
             svg {
               path {
                 fill: var(--bc);
+                @include mobile {
+                  fill: white;
+                }
               }
             }
           }
@@ -680,7 +845,8 @@ onMounted(() => {
             a > p {
               background-color: transparent !important;
               box-shadow: none;
-              color: white;
+              //   color: white;
+              color: black;
             }
             svg {
               top: -2.57rem !important;
@@ -688,7 +854,8 @@ onMounted(() => {
               height: 17.08rem !important;
               width: 43rem !important;
               path {
-                fill: #2b2b2e !important;
+                // fill: #2b2b2e !important;
+                fill: white !important;
               }
             }
           }

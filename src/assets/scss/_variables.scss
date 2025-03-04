@@ -6,6 +6,11 @@ $base-color: rgba(169, 140, 226, 255);
     @content;
   }
 }
+@mixin desktop {
+  @media (min-device-width: 913px), (min-aspect-ratio: 4/5) {
+    @content;
+  }
+}
 
 @mixin heading_one {
   font-size: 1.7rem;
@@ -63,6 +68,14 @@ $base-color: rgba(169, 140, 226, 255);
   @include mobile {
     font-size: 5.2rem;
   }
+}
+
+@mixin noscroll {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 $lightgray: #d9d9d9;

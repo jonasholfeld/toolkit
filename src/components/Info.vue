@@ -24,6 +24,10 @@ const page = usePage("info");
   width: 50rem;
   font-size: $text;
   line-height: 1.1;
+  @include noscroll;
+  @include mobile {
+    width: 100vw !important;
+  }
   h2,
   h3 {
     text-transform: uppercase;

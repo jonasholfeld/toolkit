@@ -27,7 +27,8 @@ import { defineEmits, nextTick, onMounted, onUnmounted, ref } from "vue";
 
 const link = ref(null);
 const singletext = ref(null);
-const cross = '<div class="cross">x</div>';
+const cross =
+  '<div class="cross"><svg id="Ebene_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.75 16.32"><defs><style>.cls-1{stroke-miterlimit:4;stroke-width:1.5px;}.cls-1,.cls-2{fill:none;stroke:#000;}.cls-2{stroke-width:1.5px;}</style></defs><g id="Gruppe_94"><path id="Pfad_111" class="cls-2" d="m26.37,15.66L.37.66"/><path id="Pfad_112" class="cls-1" d="m.38,15.67L26.37.65"/></g></svg></div>';
 
 let isDragging = false;
 let offsetX = 0;
@@ -56,7 +57,6 @@ const emit = defineEmits(["resetAll", "clicked"]);
 const resizeTimeout = null;
 
 const updateSize = () => {
-  console.log("update size");
   nextTick(() => {
     setTimeout(() => {
       if (singletext.value) {
@@ -80,7 +80,6 @@ const updateSize = () => {
 };
 
 const updateParents = () => {
-  console.log("update parents");
   nextTick(() => {
     setTimeout(() => {
       if (singletext.value) {
@@ -154,7 +153,6 @@ const onDrag = (event) => {
     Math.abs(event.clientY - startY) > 3
   ) {
     hasMoved = true;
-    console.log("has moved!");
   }
 
   child.style.left = `${x}px`;
@@ -166,7 +164,6 @@ const stopDrag = () => {
   isDragging = false;
   document.removeEventListener("mousemove", onDrag);
   document.removeEventListener("mouseup", stopDrag);
-  const child = singletext.value.querySelector(".link");
 };
 
 // Prevent click if the link was dragged more than 3px
@@ -182,7 +179,6 @@ const preventClickIfDragged = (event) => {
 defineExpose({
   resetPosition: () => {
     const child = singletext.value.querySelector(".link");
-    console.log(child);
     if (child) {
       child.style.transition = "left 0.5s ease, top 0.5s ease";
       child.style.left = "0px";
@@ -206,8 +202,15 @@ defineExpose({
         .cross {
           opacity: 1;
           z-index: 4;
+          position: absolute;
+          top: 55%;
           left: 50%;
+          transform: translate(-50%, -50%);
           color: black;
+          svg {
+            width: 1.3rem;
+            height: 1.3rem;
+          }
         }
         color: $darkergray;
         background-color: $darkergray !important;
@@ -256,9 +259,8 @@ defineExpose({
       margin: 0;
     }
     .cross {
-      opacity: 0;
+      //   opacity: 0;
       position: absolute;
-      top: 0.5rem;
     }
     cursor: pointer;
     &:hover {
