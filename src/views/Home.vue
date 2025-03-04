@@ -168,12 +168,14 @@ const info = ref(false);
       width: 100rem;
     }
     span {
+      color: black !important;
       @include mobile {
         font-size: $textmobile;
       }
       &:first-child {
         display: block;
         @include mobile {
+          color: black !important;
           display: none;
         }
       }
@@ -181,6 +183,7 @@ const info = ref(false);
         display: none;
         @include mobile {
           display: block;
+          color: black !important;
         }
       }
     }
