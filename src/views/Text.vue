@@ -147,7 +147,7 @@ onMounted(() => {});
         text-transform: uppercase;
       }
       &.bottom {
-        margin-bottom: 20rem;
+        margin-bottom: 30rem;
         svg {
           top: -3.57rem !important;
           left: 18.5rem !important;
