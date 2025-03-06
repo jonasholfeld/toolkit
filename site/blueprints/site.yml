@@ -8,7 +8,7 @@ tabs:
       - width: 1/2
         sections:
           information:
-            label: Projekte
+            label: Projekte / Unterseiten
             type: pages
             templates:
               - project

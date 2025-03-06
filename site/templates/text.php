@@ -60,6 +60,9 @@ foreach($page->parent()->categories()->toStructure() as $cat) {
         $color = $cat->color();
     }
 }
+if($page->overwritecategory()->toBool()){
+    $color = $page->highlightcolor();
+}
 
 $data = [
   'title' => $page->displaytitle()->value() != '' ? $page->displaytitle()->kt()->value() : '<p>'.$page->title()->value().'</p>',

@@ -1,5 +1,7 @@
 title: Projekt
-
+changeSlug: false
+delete: false
+changeStatus: false
 columns:
   - width: 1/2
     sections:
@@ -7,24 +9,20 @@ columns:
         type: fields
         fields:
           longtitle:
+            help: Für längere Titel mit Umbrüchen (wenn nicht ausgefüllt wird Page-Title angezeigt.)
             type: textarea
             buttons: false
             label: Anzeige-Titel
-      children:
-        type: pages
-        headline: Texte
-        template: text
-        sortBy: title asc
-        layout: table
-        columns:
-          category: true
-  - width: 1/2
-    sections:
-      fields:
-        type: fields
-        fields:
           color:
             type: color
+            label: Farbe
+            help: Highlight-Farbe des Projekts wird an verschiedenen Stellen zur Zuordnung angezeigt
+            width: 1/2
+          fontcolor:
+            type: color
+            label: Mouseover Textfarbe
+            help: Textfarbe bei Mousover auf der Startseite
+            width: 1/2
           categories:
             type: structure
             label: Text Kategorien
@@ -36,3 +34,13 @@ columns:
               invertOnHover:
                 label: Weiße Schrift bei Mouseover?
                 type: toggle
+  - width: 1/2
+    sections:
+      children:
+        type: pages
+        headline: Texte
+        template: text
+        sortBy: title asc
+        layout: table
+        columns:
+          category: true

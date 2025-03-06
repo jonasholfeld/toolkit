@@ -108,10 +108,22 @@ onMounted(() => {
   updateParents();
   setTimeout(() => {
     updateSize();
-  }, 1000);
+  }, 100);
   setTimeout(() => {
     updateSize();
-  }, 2000);
+  }, 200);
+  setTimeout(() => {
+    updateSize();
+  }, 300);
+  setTimeout(() => {
+    updateSize();
+  }, 400);
+  setTimeout(() => {
+    updateSize();
+  }, 500);
+  setTimeout(() => {
+    updateSize();
+  }, 600);
 });
 
 onUnmounted(() => {
@@ -265,7 +277,6 @@ defineExpose({
     cursor: pointer;
     &:hover {
       background-color: var(--ac);
-      font-style: italic;
       &.invert {
         color: white;
       }

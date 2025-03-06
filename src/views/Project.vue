@@ -16,10 +16,6 @@
       </button>
       <Datenschutz></Datenschutz>
     </div>
-    <div class="presents-wrapper">
-      Das bildungswerk des bbk berlin präsentiert:
-      <span>{{ page.title }}</span>
-    </div>
     <div
       class="left-side"
       :class="{ 'has-child': hasChild }"
@@ -69,6 +65,7 @@
             @click="
               permanentActiveCategry = '';
               currentmode = '';
+              resetAll();
             "
           >
             <p>Menü</p>
@@ -232,10 +229,6 @@
         bildungswerk des bbk berlin
       </div>
     </div>
-    <div class="presents-wrapper bottom" @click="datenschutz = true">
-      <span>Impressum</span>
-      <span>Datenschutz</span>
-    </div>
   </div>
 </template>
 <script setup>
@@ -260,13 +253,13 @@ const menu = ref(null);
 const currentmode = ref("lesen");
 const buttons = [lesen, ausblenden, einblenden, menu];
 const permanentActiveCategry = ref("");
-const textZindex = 1;
+let textZindex = 1;
 
 const mobileCat = ref("");
 const openCategories = ref({});
 
 const textclicked = () => {
-  textZindex.value++;
+  textZindex++;
 };
 
 const safeScroll = () => {
@@ -304,6 +297,8 @@ if (route.fullPath.split("/").length > 2) {
 } else {
   page = usePage();
 }
+
+console.log(page);
 
 const isMobile = () => {
   let check = false;
@@ -388,13 +383,12 @@ const setActiveCategoryPermanent = (category, color, invertOnHover) => {
 };
 
 const resetAll = () => {
-  if (!hasChild.value) {
-    textlinks.value.forEach((tl) => {
-      if (tl && typeof tl.resetPosition === "function") {
-        tl.resetPosition();
-      }
-    });
-  }
+  console.log("reset all");
+  textlinks.value.forEach((tl) => {
+    if (tl && typeof tl.resetPosition === "function") {
+      tl.resetPosition();
+    }
+  });
 };
 const vw = window.innerWidth * 0.01;
 
@@ -519,7 +513,7 @@ onMounted(() => {
   }
   .left-side {
     flex: 0 0 0%;
-    transition: flex 1s ease, background-color 1s ease;
+    transition: flex 0.7s ease, background-color 1s ease;
     position: relative;
     background-color: transparent;
     z-index: 6;
@@ -541,7 +535,7 @@ onMounted(() => {
     padding: 1.5rem;
     @include mobile {
       padding: 0;
-      height: auto;
+      height: 100dvh;
       flex: 1;
     }
     .button-wrapper {
@@ -573,13 +567,13 @@ onMounted(() => {
         &.menubutton {
           padding: 0;
           margin: 0;
-          background-color: transparent;
+          background-color: transparent !important;
           width: 9rem;
           box-shadow: none;
           height: 2.4rem;
+
           &:hover {
             p {
-              font-style: italic;
               line-height: 1.5;
               color: white;
             }
@@ -594,15 +588,17 @@ onMounted(() => {
             height: 100%;
             width: 100%;
             position: relative;
+            display: block;
             p {
               margin: 0;
               position: relative;
               z-index: 1;
+              padding-top: 0.65rem;
             }
             svg {
               position: absolute;
-              top: -1.17rem;
-              left: -6.5rem;
+              top: -0.6rem;
+              left: -1.5rem;
               z-index: 0;
               height: 4.08rem;
               width: 13rem;
@@ -617,24 +613,24 @@ onMounted(() => {
         &.active {
           background-color: #2b2b2e;
           color: white;
-          font-style: italic;
         }
         cursor: pointer;
         &:hover {
+          background-color: #2b2b2e;
           span {
-            font-style: italic;
+            color: white;
           }
         }
       }
     }
     .big-title {
       height: 8rem;
-      transition: height 1s ease, opacity 1s ease;
-
+      transition: height 0.4s ease 0.2s, opacity 0.4s ease 0.2s;
       &.disappear {
         height: 0;
         opacity: 0;
         overflow: hidden;
+        transition: height 0.4s ease, opacity 0.4s ease 0s;
       }
     }
     .footer-text {
@@ -650,7 +646,10 @@ onMounted(() => {
     .big-title,
     .footer-text {
       @include mobile {
-        display: none;
+        font-size: 5rem;
+        height: auto;
+        margin: 6rem 0;
+        line-height: 1.1;
       }
       font-size: 2.7rem;
       font-family: sans-serif;
@@ -660,7 +659,7 @@ onMounted(() => {
       text-align: center;
       line-height: 0.9;
       letter-spacing: 0.002rem;
-      filter: blur(1px);
+      filter: blur(0.07rem);
       text-shadow: 0px 2px 2px #00000066;
       p {
         margin: 0;
@@ -679,6 +678,7 @@ onMounted(() => {
       padding-left: 0.4rem;
       @include mobile {
         flex-direction: column;
+        flex: 1;
       }
       .single-category {
         cursor: pointer;
@@ -788,9 +788,9 @@ onMounted(() => {
               color: black;
             }
             svg {
-              top: -2.57rem !important;
+              top: -3.57rem !important;
               left: 21.5rem !important;
-              height: 17.08rem !important;
+              height: 19rem !important;
               width: 58rem !important;
               -webkit-filter: drop-shadow(0px 3px 6px #00000029);
               filter: drop-shadow(0px 3px 6px #00000029);
@@ -849,9 +849,9 @@ onMounted(() => {
               color: black;
             }
             svg {
-              top: -2.57rem !important;
+              top: -3rem !important;
               left: 26.5rem !important;
-              height: 17.08rem !important;
+              height: 19rem !important;
               width: 43rem !important;
               path {
                 // fill: #2b2b2e !important;

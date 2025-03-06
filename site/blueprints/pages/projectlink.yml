@@ -1,5 +1,7 @@
 title: Projektlink
-
+changeSlug: false
+delete: false
+changeStatus: false
 columns:
   - width: 1/2
     sections:
@@ -7,7 +9,13 @@ columns:
         type: fields
         fields:
           externallink:
+            label: Link zur Projekt-Seite
             type: url
+          displaytitle:
+            type: textarea
+            buttons: false
+            label: Anzeigetitel
+            help: Für längere Titel mit Umbrüchen (wenn nicht ausgefüllt wird Page-Title angezeigt.)
   - width: 1/2
     sections:
       fields:
@@ -15,3 +23,8 @@ columns:
         fields:
           color:
             type: color
+            help: Highlight-Farbe des Projekts wird an verschiedenen Stellen zur Zuordnung angezeigt
+          fontcolor:
+            type: color
+            label: Mouseover Textfarbe
+            help: Textfarbe bei Mousover auf der Startseite

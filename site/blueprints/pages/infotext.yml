@@ -1,5 +1,8 @@
 title: Infotext
 num: false
+changeSlug: false
+delete: false
+changeStatus: false
 columns:
   - width: 1
     fields:
