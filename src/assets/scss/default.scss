@@ -29,8 +29,8 @@ html {
   width: 100vw;
   overflow: hidden;
   @include mobile {
-    height: unset;
-    overflow: unset;
+    height: 100dvh;
+    overflow: scroll;
     --isMobile: true;
   }
 }

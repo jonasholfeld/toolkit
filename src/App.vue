@@ -26,6 +26,10 @@ const site = useSite();
   padding: 0;
   min-height: 100dvh;
   width: 100vw;
+  @include mobile {
+    height: 100dvh;
+    overflow: scroll;
+  }
 }
 .v-enter-active,
 .v-leave-active {
