@@ -193,6 +193,9 @@ h6 {
       font-size: $textsmall;
       padding-left: 2rem;
       padding-right: 2rem;
+      @include mobile {
+        font-size: $textmobile;
+      }
     }
     &.portrait {
       display: flex;
