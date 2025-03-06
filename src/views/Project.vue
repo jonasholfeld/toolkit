@@ -1,5 +1,8 @@
 <template>
-  <div class="project-wrapper" :class="{ 'hide-presents': hasChild }">
+  <div
+    class="project-wrapper"
+    :class="{ 'hide-presents': hasChild, 'has-child': hasChild }"
+  >
     <div class="datenschutz" :class="{ open: datenschutz }">
       <button class="close" @click="datenschutz = false">
         <svg
@@ -264,10 +267,6 @@ const textclicked = () => {
 
 const safeScroll = () => {
   scrollPoint.value = window.scrollY || document.documentElement.scrollTop;
-  console.log(
-    scrollPoint.value,
-    ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-  );
 };
 
 const toggleCat = (cat) => {
