@@ -102,7 +102,7 @@ h6 {
         a {
           font-size: $textsmall;
           @include mobile {
-            font-size: $textmobile !important;
+            font-size: $smallmobile !important;
           }
         }
         @include mobile {
@@ -194,7 +194,7 @@ h6 {
       padding-left: 2rem;
       padding-right: 2rem;
       @include mobile {
-        font-size: $textmobile;
+        font-size: $smallmobile;
       }
     }
     &.portrait {
