@@ -33,7 +33,7 @@
         </transition>
       </router-view>
     </div>
-    <div class="right-side" :class="{ 'has-child': hasChild }">
+    <div ref="rightside" class="right-side" :class="{ 'has-child': hasChild }">
       <div
         class="big-title"
         :class="{ disappear: hasChild }"
@@ -245,6 +245,7 @@ import Datenschutz from "../components/Datenschutz.vue";
 let page;
 const route = useRoute();
 const activeCategory = ref("");
+const rightside = ref(null);
 const highLightedCategory = ref("");
 const activeColor = ref("");
 const invertActiveTexts = ref(false);
@@ -266,7 +267,8 @@ const textclicked = () => {
 };
 
 const safeScroll = () => {
-  scrollPoint.value = window.scrollY || document.documentElement.scrollTop;
+  scrollPoint.value = document.getElementById("page").scrollTop;
+  console.log("scroll point safed!!!!!!!!", scrollPoint.value);
 };
 
 const toggleCat = (cat) => {
@@ -342,13 +344,14 @@ watch(route, () => {
     setActiveCategory("", "", false);
     permanentActiveCategry.value = "";
   } else {
+    console.log("watch rouuuuuuuuuuuuuuute", scrollPoint.value);
     if (isMobile() && scrollPoint.value) {
-      console.log("scrollpoint", scrollPoint.value);
+      console.log("scrollpoint >>>>>>>>>>>>>>>>>>>>>>>>>>>", scrollPoint.value);
       //   window.scrollTo(0, scrollPoint.value);
       //   window.scrollTo({ top: scrollPoint.value, behavior: "smooth" });
       nextTick(() => {
         setTimeout(() => {
-          window.scrollTo(0, scrollPoint.value);
+          document.getElementById("page").scrollTo(0, scrollPoint.value);
         }, 10);
       });
     }

@@ -1,6 +1,6 @@
 <template>
   <Announcer />
-  <div class="page" :class="{ home: route.path == '/' }">
+  <div id="page" class="page" :class="{ home: route.path == '/' }">
     <router-view v-slot="{ Component }">
       <keep-alive include="Workcategory,Home">
         <component
