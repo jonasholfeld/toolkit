@@ -397,13 +397,13 @@ const filterForCat = (texts, category) => {
 };
 
 onMounted(() => {
-  buttons.forEach((bt, index) => {
-    if (index !== buttons.length) {
-      const button = bt.value;
-      const buttonWidth = (button.offsetWidth / window.innerWidth) * 100;
-      button.style.width = `${buttonWidth}rem`;
-    }
-  });
+  //   buttons.forEach((bt, index) => {
+  //     if (index !== buttons.length) {
+  //       const button = bt.value;
+  //       const buttonWidth = (button.offsetWidth / window.innerWidth) * 100;
+  //       button.style.width = `${buttonWidth}rem`;
+  //     }
+  //   });
 });
 </script>
 
@@ -770,6 +770,12 @@ onMounted(() => {
           z-index: 1;
           position: relative;
           text-transform: uppercase;
+          @include desktop {
+            background-color: transparent !important;
+          }
+          @include mobile {
+            background-color: white !important;
+          }
         }
         &:first-child {
           background-color: transparent !important;

@@ -97,6 +97,15 @@ watch(page, () => {
             wrapper.classList.remove("open");
           } else {
             overflowWrapper.style.height = `${innerWrapper.offsetHeight}px`;
+            setTimeout(() => {
+              overflowWrapper.style.height = `${innerWrapper.offsetHeight}px`;
+            }, 100);
+            setTimeout(() => {
+              overflowWrapper.style.height = `${innerWrapper.offsetHeight}px`;
+            }, 200);
+            setTimeout(() => {
+              overflowWrapper.style.height = `${innerWrapper.offsetHeight}px`;
+            }, 300);
             wrapper.classList.add("open");
           }
         }
@@ -148,6 +157,7 @@ onMounted(() => {});
       position: relative;
       margin-top: 8rem;
       margin-bottom: 8rem;
+      cursor: pointer;
       span {
         position: absolute;
         left: 50%;

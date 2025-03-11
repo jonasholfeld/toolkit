@@ -378,7 +378,7 @@ const isMobile = () => {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 18rem;
+    padding-top: 12rem;
     height: calc(100svh - 42rem);
   }
   .navigatior-wrapper {
