@@ -63,10 +63,10 @@
         class="navigatior-wrapper"
         :style="{ '--fc': project.fontcolor }"
       >
-        <span v-if="isMobile()" :to="project.uri" v-html="project.title"></span>
+        <span v-if="isMobile" :to="project.uri" v-html="project.title"></span>
         <span v-else :to="project.uri">{{ project.puretitle }}</span>
         <svg
-          v-if="index == 0 && !isMobile()"
+          v-if="index == 0 && !isMobile"
           id="Ebene_1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1275.59 311.81"
@@ -79,7 +79,7 @@
           />
         </svg>
         <svg
-          v-if="index == 0 && isMobile()"
+          v-if="index == 0 && isMobile"
           id="Ebene_1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1300 400"
@@ -91,7 +91,7 @@
           />
         </svg>
         <svg
-          v-if="index == 1 && !isMobile()"
+          v-if="index == 1 && !isMobile"
           id="Ebene_1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1275.59 311.81"
@@ -104,7 +104,7 @@
           />
         </svg>
         <svg
-          v-if="index == 1 && isMobile()"
+          v-if="index == 1 && isMobile"
           id="Ebene_1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1300 400"
@@ -116,7 +116,7 @@
           />
         </svg>
         <svg
-          v-if="index == 2 && !isMobile()"
+          v-if="index == 2 && !isMobile"
           id="Ebene_1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1275.59 311.81"
@@ -129,7 +129,7 @@
           />
         </svg>
         <svg
-          v-if="index == 2 && isMobile()"
+          v-if="index == 2 && isMobile"
           id="Ebene_1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1300 400"
@@ -155,16 +155,16 @@ const site = useSite();
 console.log(site);
 const datenschutz = ref(false);
 const info = ref(false);
-const isMobile = () => {
-  console.log(
-    "is mobile: ",
-    getComputedStyle(document.body).getPropertyValue("--isMobile").trim()
-  );
-  return (
+const isMobile = ref(false);
+window.addEventListener("resize", updateIsMobile);
+
+const updateIsMobile = () => {
+  isMobile.value =
     getComputedStyle(document.body).getPropertyValue("--isMobile").trim() ===
-    "true"
-  );
+    "true";
 };
+
+updateIsMobile();
 </script>
 
 <style scoped lang="scss">
