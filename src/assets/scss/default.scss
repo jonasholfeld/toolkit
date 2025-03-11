@@ -32,6 +32,14 @@ html {
     height: 100dvh;
     overflow: scroll;
     --isMobile: true;
+    @include noscroll;
+  }
+}
+
+#app,
+#page {
+  @include mobile {
+    @include noscroll;
   }
 }
 
@@ -61,6 +69,17 @@ h6 {
 
 .inner-text-wrapper {
   font-size: $text;
+  h2,
+  h3 {
+    @include mobile {
+      margin-bottom: $textmobile;
+    }
+  }
+  .author {
+    @include mobile {
+      margin-bottom: $textmobile !important;
+    }
+  }
   ul {
     padding: 0 6.6rem;
     @include mobile {
@@ -96,7 +115,7 @@ h6 {
       padding: 0;
       font-size: $textsmall;
       li {
-        padding-left: $text;
+        padding-left: 0.5rem;
         font-size: $textsmall;
         margin-bottom: 0.5rem;
         a {
@@ -106,8 +125,8 @@ h6 {
           }
         }
         @include mobile {
-          padding-left: $textmobile !important;
-          font-size: $textmobile !important;
+          padding-left: $smallmobile !important;
+          font-size: $smallmobile !important;
         }
       }
     }
@@ -236,14 +255,13 @@ h6 {
   strong {
     font-weight: normal !important;
     $blur: 0.7rem;
+    $blurMobile: 2.7rem;
     text-shadow: 0px 0px $blur var(--hc), 0px 0px $blur var(--hc);
     // text-shadow: 0px 0px 0.5rem var(--hc), 0px 0px 0.5rem var(--hc),
     //   0px 0px 0.5rem var(--hc), 0px 0px 0.5rem var(--hc),
     //   0px 0px 0.5rem var(--hc), 0px 0px 0.5rem var(--hc);
     @include mobile {
-      text-shadow: 0px 0px 2.5rem var(--hc), 0px 0px 2.5rem var(--hc),
-        0px 0px 2.5rem var(--hc), 0px 0px 2.5rem var(--hc),
-        0px 0px 2.5rem var(--hc), 0px 0px 2.5rem var(--hc);
+      text-shadow: 0px 0px $blurMobile var(--hc), 0px 0px $blurMobile var(--hc);
     }
   }
   .colored-container {
@@ -254,6 +272,7 @@ h6 {
     @include mobile {
       margin-bottom: $textmobile;
       padding: $textmobile;
+      border-radius: 2rem;
     }
     > p {
       &:last-child {

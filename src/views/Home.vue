@@ -66,7 +66,7 @@
         <span v-if="isMobile()" :to="project.uri" v-html="project.title"></span>
         <span v-else :to="project.uri">{{ project.puretitle }}</span>
         <svg
-          v-if="index == 0"
+          v-if="index == 0 && !isMobile()"
           id="Ebene_1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1275.59 311.81"
@@ -79,7 +79,18 @@
           />
         </svg>
         <svg
-          v-if="index == 1"
+          v-if="index == 0 && isMobile()"
+          id="Ebene_1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1300 400"
+        >
+          <polygon
+            class="cls-1"
+            points="1033.06 194.07 1156.77 365 162.96 365 190.48 339.15 129.82 339.15 154.77 315.7 102.77 315.7 222.63 153.55 102.77 35 1096.58 35 1070.15 58.44 1123.62 58.44 1094.48 84.3 1156.77 84.3 1033.06 194.07"
+          />
+        </svg>
+        <svg
+          v-if="index == 1 && !isMobile()"
           id="Ebene_1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1275.59 311.81"
@@ -91,9 +102,19 @@
             d="m437.45,17.39v25.05h-127.55v25.83h-73.56v25.83h-76.69v25.03h-47.74v25.83h-52.44v23.49h-24.25v125.98h826.4v-24.27h126.78v-24.25h101.73v-25.05h75.12v-25.05h48.52v-25.04h26.62V17.39H437.45Z"
           />
         </svg>
-
         <svg
-          v-if="index == 2"
+          v-if="index == 1 && isMobile()"
+          id="Ebene_1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1300 400"
+        >
+          <polygon
+            class="cls-1"
+            points="1177 35 1177 240.22 1150.37 240.22 1150.37 265.49 1101.81 265.49 1101.81 290.76 1026.63 290.76 1026.63 316.04 924.82 316.04 924.82 340.51 820.25 340.51 819.96 365 123 365 123 187.42 147.27 187.42 147.27 163.72 199.75 163.72 199.75 137.65 247.53 137.65 247.53 112.39 324.28 112.39 324.28 86.33 397.9 86.33 397.9 60.27 525.55 60.27 525.55 35 1177 35"
+          />
+        </svg>
+        <svg
+          v-if="index == 2 && !isMobile()"
           id="Ebene_1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1275.59 311.81"
@@ -103,6 +124,18 @@
             class="cls-1"
             :style="{ '--c': project.color }"
             d="m930.27,17.39v27.87h-27.87v25.88h-27.79v-26.13h-27.62v-27.62h-167.44v27.87h-27.87v25.88h-27.69v-26.13h-27.62v-27.62h-167.44v27.87h-27.87v26.12h-.01v-.13h-27.86v-26.13h-27.62v-27.62h-167.44v27.87h-27.87v26.12h-27.86v167.2h27.86v27.86h27.87v27.87h167.44v-28.12h27.62v-27.86h.01v.14h27.86v27.87h27.87v27.86h167.44v-28.11h27.62v-27.62h27.69v27.87h27.87v27.86h167.44v-28.11h27.62v-27.62h27.79v27.87h27.87v27.86h167.45v-28.11h27.61v-27.87h27.87V71.14h-27.87v-26.13h-27.61v-27.62h-167.45Z"
+          />
+        </svg>
+        <svg
+          v-if="index == 2 && isMobile()"
+          id="Ebene_1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1300 400"
+        >
+          <path
+            id="Pfad_142-2"
+            class="cls-1"
+            d="m965.2,35v28.12h-27.87v26.12h-27.8v-26.37h-27.63v-27.87h-167.47v28.12h-27.88v26.12h-27.7v-26.37h-27.63v-27.87h-167.47v28.12h-27.88v26.36h-.01v-.13h-27.86v-26.37h-27.63v-27.87h-190.48v28.12h-27.87v26.36h-27.87v219.17h27.87v28.11h27.87v28.12h190.48v-28.38h27.63v-28.11h.01v.14h27.86v28.12h27.88v28.11h167.47v-28.37h27.63v-27.87h27.7v28.12h27.88v28.11h167.47v-28.37h27.63v-27.87h27.8v28.12h27.87v28.11h167.48v-28.37h27.62v-28.12h27.87V89.24h-27.87v-26.37h-27.62v-27.87h-167.48Z"
           />
         </svg>
       </a>
@@ -120,19 +153,14 @@ console.log(site);
 const datenschutz = ref(false);
 const info = ref(false);
 const isMobile = () => {
-  let check = false;
-  (function (a) {
-    if (
-      /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(
-        a
-      ) ||
-      /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(
-        a.substr(0, 4)
-      )
-    )
-      check = true;
-  })(navigator.userAgent || navigator.vendor || window.opera);
-  return check;
+  console.log(
+    "is mobile: ",
+    getComputedStyle(document.body).getPropertyValue("--isMobile").trim()
+  );
+  return (
+    getComputedStyle(document.body).getPropertyValue("--isMobile").trim() ===
+    "true"
+  );
 };
 </script>
 
@@ -172,6 +200,9 @@ const isMobile = () => {
 .presents-wrapper {
   padding: 0.8rem 1rem;
   font-size: $text;
+  @include mobile {
+    padding: 3rem 1rem;
+  }
   span {
     display: none;
     @include mobile {
@@ -202,7 +233,7 @@ const isMobile = () => {
     font-size: $text;
     cursor: pointer;
     @include mobile {
-      bottom: 1rem;
+      bottom: 2rem;
       left: 0rem;
       width: 100rem;
       height: 10rem;
@@ -272,14 +303,15 @@ const isMobile = () => {
   .info {
     position: absolute;
     right: -70rem;
-    transition: right 1s ease;
+    transition: right 1s ease, top 1s ease;
     z-index: 5;
     box-shadow: 10px 10px 50px #000000;
     width: 50vw;
     height: 100vh;
     @include mobile {
       width: 100vw;
-      right: -110rem;
+      right: 0rem;
+      top: 120vh;
     }
     .close {
       position: absolute;
@@ -331,6 +363,9 @@ const isMobile = () => {
     }
     &.open {
       right: 0rem;
+      @include mobile {
+        top: 0rem;
+      }
     }
   }
 }
@@ -370,26 +405,36 @@ const isMobile = () => {
       }
     }
     &:nth-child(1) {
-      top: 17vh;
+      top: 14vh;
       z-index: 4;
+      @include mobile {
+        span {
+          width: 37vw;
+          top: 14rem;
+        }
+      }
     }
     &:nth-child(2) {
-      top: 42vh;
+      top: 40vh;
       left: 40rem;
       z-index: 3;
       animation: moveLeft 28s linear infinite alternate;
       @include mobile {
         animation: moveDown 4s linear infinite alternate !important;
         span {
+          top: 14rem;
         }
       }
     }
     &:nth-child(3) {
-      top: 67vh;
+      top: 65vh;
       left: 0rem;
       animation: moveRight 34s linear infinite alternate 1s;
       @include mobile {
         animation: moveUp 5s linear infinite alternate !important;
+        span {
+          top: 14rem;
+        }
       }
     }
     & svg {
@@ -406,6 +451,24 @@ const isMobile = () => {
         fill: white;
       }
     }
+    &:nth-child(1) {
+      span {
+        left: 30rem;
+        top: 7rem;
+      }
+    }
+    &:nth-child(2) {
+      span {
+        left: 32rem;
+        top: 7rem;
+      }
+    }
+    &:nth-child(3) {
+      span {
+        left: 32rem;
+        top: 7rem;
+      }
+    }
     span {
       width: 35rem;
       text-align: center;
@@ -416,14 +479,13 @@ const isMobile = () => {
       padding: 2rem;
       margin: 1rem;
       z-index: 3;
-      left: 49%;
-      top: 7rem;
       transform: translate(-50%, -50%);
       text-transform: uppercase;
       @include mobile {
         font-size: $textmobile;
         width: 100vw;
         top: 11rem;
+        line-height: 1;
       }
     }
   }

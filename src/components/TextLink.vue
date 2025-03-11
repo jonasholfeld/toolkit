@@ -127,7 +127,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  //   window.removeEventListener("resize", handleResize);
+  window.removeEventListener("resize", handleResize);
 });
 
 const startDrag = (event) => {

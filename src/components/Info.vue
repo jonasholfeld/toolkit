@@ -1,6 +1,6 @@
 <template>
   <div class="inner-text-wrapper">
-    <div class="home-button" @click="emit('closeInfo')">
+    <div class="home-button top" @click="emit('closeInfo')">
       <a>
         <p>Startseite</p>
         <svg
@@ -21,7 +21,7 @@
     <h2 class="da" v-html="dp.title"></h2>
     <div class="da text-wrapper" v-html="dp.text"></div>
     <div class="footnotes" v-html="page.footnotes"></div>
-    <div class="home-button">
+    <div class="home-button" @click="emit('closeInfo')">
       <a>
         <p>Startseite</p>
         <svg
@@ -119,13 +119,19 @@ const emit = defineEmits(["closeInfo"]);
         text-transform: uppercase;
       }
       svg {
-        top: -2.57rem !important;
-        left: 26.5rem !important;
+        top: -2.37rem !important;
+        left: 27rem !important;
         height: 17.08rem !important;
         width: 43rem !important;
         path {
           // fill: #2b2b2e !important;
           fill: #e8e4e4 !important;
+        }
+      }
+      &.top {
+        svg {
+          -webkit-filter: drop-shadow(0px 5px 6px #00000029) !important;
+          filter: drop-shadow(0px 3px 6px #00000029) !important;
         }
       }
     }
@@ -143,8 +149,8 @@ const emit = defineEmits(["closeInfo"]);
       z-index: 0;
       height: 4.08rem;
       width: 10rem;
-      -webkit-filter: drop-shadow(0px 3px 6px #00000029);
-      filter: drop-shadow(0px 3px 6px #00000029);
+      -webkit-filter: drop-shadow(0px -5px 6px #00000029);
+      filter: drop-shadow(0px 3px -6px #00000029);
       path {
         fill: white;
       }
