@@ -156,7 +156,6 @@ console.log(site);
 const datenschutz = ref(false);
 const info = ref(false);
 const isMobile = ref(false);
-window.addEventListener("resize", updateIsMobile);
 
 const updateIsMobile = () => {
   isMobile.value =
@@ -165,6 +164,7 @@ const updateIsMobile = () => {
 };
 
 updateIsMobile();
+window.addEventListener("resize", updateIsMobile);
 </script>
 
 <style scoped lang="scss">
