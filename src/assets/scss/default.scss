@@ -81,20 +81,26 @@ h6 {
     }
   }
   ul {
-    padding: 0 6.6rem;
+    padding: 0 7.1rem;
     list-style: none;
     @include mobile {
-      padding: 0 7.2rem;
+      padding: 0 7.1rem 0 10.2rem;
     }
     li {
       //   padding-left: 0.5rem;
-      display: flex;
+      //   display: flex;
+      //   padding-left: 2rem;
       &::before {
         // padding-left: 1rem;
-        margin-left: -0.5rem;
+        margin-left: -1rem;
         padding-right: 0.5rem;
+        // left: 0;
         display: block;
+        position: absolute;
         content: "▶";
+        @include mobile {
+          margin-left: -4rem;
+        }
       }
       &::marker {
         padding-left: 1rem;
