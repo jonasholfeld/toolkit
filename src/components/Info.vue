@@ -64,6 +64,7 @@ const emit = defineEmits(["closeInfo"]);
   @include mobile {
     padding: 0 3rem !important;
     width: 100vw !important;
+    height: 100svh !important;
   }
   .da {
     display: none;

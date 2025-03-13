@@ -151,8 +151,8 @@
             v-else
             :style="{
               backgroundColor:
-                openCategories[category.name] && isMobile
-                  ? 'var(--bc)'
+                openCategories[category.name] && isMobile && index != 0
+                  ? 'var(--bc) !important'
                   : 'white',
               color:
                 openCategories[category.name] && index == 0 ? 'white' : 'black',
