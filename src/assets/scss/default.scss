@@ -88,10 +88,12 @@ h6 {
     }
     li {
       //   padding-left: 0.5rem;
+      display: flex;
       &::before {
         // padding-left: 1rem;
         margin-left: -0.5rem;
         padding-right: 0.5rem;
+        display: block;
         content: "▶";
       }
       &::marker {
