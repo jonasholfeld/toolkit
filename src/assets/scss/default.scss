@@ -134,6 +134,12 @@ h6 {
         padding-left: 0.5rem;
         font-size: $textsmall;
         margin-bottom: 0.5rem;
+        span {
+          font-size: $textsmall;
+        }
+        span > a {
+          font-size: $textsmall;
+        }
         a {
           font-size: $textsmall;
           @include mobile {
@@ -207,16 +213,6 @@ h6 {
     }
   }
   .download-files {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: $text 0;
-    a {
-      padding: $text 4rem;
-      background-color: $lightgray;
-      border-radius: 2rem;
-      text-transform: uppercase;
-    }
   }
   figure {
     margin: 0;

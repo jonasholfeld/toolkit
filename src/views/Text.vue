@@ -17,14 +17,10 @@
     <h2 v-if="page.category == 'Glossar'">Glossar</h2>
     <div class="author">{{ page.author }}</div>
     <div class="text-wrapper" v-html="page.text"></div>
-    <div
-      v-if="page.download != null"
-      class="download-files"
-      :class="page.download"
-    >
+    <div class="footnotes" v-html="page.footnotes"></div>
+    <div v-if="page.download != null" class="download-files">
       <a :href="page.download" download>Download PDF</a>
     </div>
-    <div class="footnotes" v-html="page.footnotes"></div>
     <div class="mobile-menu bottom" @click="goBack">
       <span>Menü</span>
       <svg
@@ -148,6 +144,33 @@ onMounted(() => {});
   width: 50rem;
   font-size: $text;
   line-height: 1.1;
+  .download-files {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: $text 0;
+    @include mobile {
+      margin: $textmobile 0 0 0;
+    }
+    a {
+      padding: 0.7rem 1.5rem;
+      font-size: $text;
+      //   height: 2.42991rem;
+      background-color: $lightgray;
+      border-radius: 2rem;
+      text-transform: uppercase;
+      background-color: var(--hc);
+      @include mobile {
+        font-size: $textmobile;
+        border-radius: 10rem;
+        padding: 2.1rem 4.5rem;
+      }
+      &:hover {
+        background-color: black;
+        color: white;
+      }
+    }
+  }
   .mobile-menu {
     display: none;
     @include mobile {
@@ -155,7 +178,7 @@ onMounted(() => {});
       width: 100%;
       height: 10rem;
       position: relative;
-      margin-top: 8rem;
+      margin-top: 4rem;
       margin-bottom: 8rem;
       cursor: pointer;
       span {
@@ -167,7 +190,7 @@ onMounted(() => {});
         text-transform: uppercase;
       }
       &.bottom {
-        margin-bottom: 8rem;
+        margin-bottom: 4rem;
         svg {
           top: -3.57rem !important;
           left: 18.5rem !important;
