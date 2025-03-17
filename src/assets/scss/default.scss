@@ -140,6 +140,7 @@ h6 {
         span > a {
           font-size: $textsmall;
           font-variant-emoji: text;
+          unicode-bidi: plaintext;
         }
         a {
           font-size: $textsmall;
