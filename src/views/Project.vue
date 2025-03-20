@@ -226,6 +226,8 @@
           @clicked="textclicked()"
           @resetAll="resetAll"
           @click="textClicked(text.category, text.uri, $event)"
+          @mouseover="setActiveCategoryFromText(text.category)"
+          @mouseleave="setActiveCategoryFromText('')"
         ></text-link>
       </div>
       <div class="footer-text" :class="{ disappear: hasChild }">
@@ -236,13 +238,14 @@
 </template>
 <script setup>
 import { watch } from "vue";
-import { usePage } from "~/composables";
+import { usePage, useSite } from "~/composables";
 import { nextTick, onMounted, onUnmounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import TextLink from "../components/TextLink.vue";
 import Datenschutz from "../components/Datenschutz.vue";
 
 let page;
+const site = useSite();
 const route = useRoute();
 const activeCategory = ref("");
 const rightside = ref(null);
@@ -355,6 +358,12 @@ watch(route, () => {
     }
   }
 });
+
+const setActiveCategoryFromText = (category) => {
+  if (!isMobile.value) {
+    highLightedCategory.value = category;
+  }
+};
 
 const setActiveCategory = (category, color, invertOnHover) => {
   if (!permanentCat.value && !isMobile.value) {
@@ -693,7 +702,7 @@ onMounted(() => {
         margin-top: 0;
         margin-bottom: 0;
         height: 2.4rem;
-        padding-top: 0.58rem;
+        padding-top: 0.49rem;
         // overflow: hidden;
         transition: opacity 1s ease;
         box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
