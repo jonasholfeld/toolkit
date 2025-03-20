@@ -13,8 +13,9 @@
         />
       </svg>
     </div>
-    <h2 v-if="page.category != 'Glossar'" v-html="page.title"></h2>
     <h2 v-if="page.category == 'Glossar'">Glossar</h2>
+    <h2 v-else-if="page.category == 'Beteiligte'">Beteiligte</h2>
+    <h2 v-else v-html="page.title"></h2>
     <div class="author">{{ page.author }}</div>
     <div class="text-wrapper" v-html="page.text"></div>
     <div class="footnotes" v-html="page.footnotes"></div>
