@@ -533,12 +533,18 @@ onMounted(() => {
     height: calc(100vh);
     width: 100%;
     padding: 1.5rem;
+    transition: width 0.5s ease;
+    &.has-child {
+      width: 50vw;
+      padding-right: 0;
+    }
     @include mobile {
       padding: 0;
       height: 100dvh;
       flex: 1;
     }
     .button-wrapper {
+      padding-right: 1.5rem;
       display: flex;
       height: 4rem;
       transition: height 0.1s ease, opacity 1s ease;
@@ -781,7 +787,7 @@ onMounted(() => {
           background-color: transparent !important;
           position: relative;
           box-shadow: none;
-          width: 8rem;
+          flex: 0 0 8rem;
           border-radius: 0 !important;
           padding-left: 0.6rem !important;
           margin-left: 0.6rem;

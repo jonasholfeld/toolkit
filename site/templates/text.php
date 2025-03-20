@@ -20,10 +20,11 @@ if($wrapBlocks > $endBlocks):
 endif;
 $footnotes = Footnotes::footnotes();
 
-if($page->category()->value() == 'Glossar') {
+if($page->category()->value() == 'Glossar' || $page->category()->value() == 'Beteiligte') {
     $blocks = '';
     $glossarBlocks = '';
-    foreach($page->parent()->children()->filterBy('category', 'Glossar') as $glossarpage) {
+    $category = $page->category()->value();
+    foreach($page->parent()->children()->filterBy('category', $category) as $glossarpage) {
         $subPageblocks = '<div class="glossar-wrapper"><h2 id="'.$glossarpage->slug().'">'.$glossarpage->title().'</h2><div class="overflow-wrapper"><div class="inner-wrapper">';
         $subPagewrapBlocks = 0;
         $subPageendBlocks = 0;
