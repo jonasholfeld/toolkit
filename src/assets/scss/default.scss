@@ -180,6 +180,8 @@ h6 {
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
+        justify-content: start;
         @include mobile {
           flex-direction: column;
         }

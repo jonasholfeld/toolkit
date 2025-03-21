@@ -7,20 +7,20 @@
     "file": "assets/SideNavigation-99ed7d70.css",
     "src": "SideNavigation.css"
   },
-  "_HomeNavLink-8b36f69a.js": {
+  "_HomeNavLink-5790ac48.js": {
     "css": [
       "assets/HomeNavLink-85abe883.css"
     ],
-    "file": "assets/HomeNavLink-8b36f69a.js",
+    "file": "assets/HomeNavLink-5790ac48.js",
     "imports": [
       "main.js"
     ]
   },
-  "_SideNavigation-9df5209b.js": {
+  "_SideNavigation-9890736d.js": {
     "css": [
       "assets/SideNavigation-99ed7d70.css"
     ],
-    "file": "assets/SideNavigation-9df5209b.js",
+    "file": "assets/SideNavigation-9890736d.js",
     "imports": [
       "main.js",
       "_index-7d9a9c74.js"
@@ -34,12 +34,12 @@
     "src": "assets/images/Minus_groß_1.svg"
   },
   "main.css": {
-    "file": "assets/main-65960d6a.css",
+    "file": "assets/main-02cbf90a.css",
     "src": "main.css"
   },
   "main.js": {
     "css": [
-      "assets/main-65960d6a.css"
+      "assets/main-02cbf90a.css"
     ],
     "dynamicImports": [
       "views/Error.vue",
@@ -50,7 +50,7 @@
       "views/Work.vue",
       "views/Workcategory.vue"
     ],
-    "file": "assets/main-68db7c49.js",
+    "file": "assets/main-ac191f5d.js",
     "isEntry": true,
     "src": "main.js"
   },
@@ -62,7 +62,7 @@
     "css": [
       "assets/Error-b4239293.css"
     ],
-    "file": "assets/Error-aafe36b2.js",
+    "file": "assets/Error-af96850f.js",
     "imports": [
       "main.js"
     ],
@@ -77,9 +77,9 @@
     "css": [
       "assets/Home copy_pre241126-3c586336.css"
     ],
-    "file": "assets/Home copy_pre241126-b5f9db12.js",
+    "file": "assets/Home copy_pre241126-bc651846.js",
     "imports": [
-      "_HomeNavLink-8b36f69a.js",
+      "_HomeNavLink-5790ac48.js",
       "main.js"
     ],
     "isDynamicEntry": true,
@@ -93,7 +93,7 @@
     "css": [
       "assets/Home_copy_21225-bcf68bbe.css"
     ],
-    "file": "assets/Home_copy_21225-c10955da.js",
+    "file": "assets/Home_copy_21225-002fc800.js",
     "imports": [
       "main.js",
       "_index-7d9a9c74.js"
@@ -109,9 +109,9 @@
     "css": [
       "assets/Home_copy_241203-51b19111.css"
     ],
-    "file": "assets/Home_copy_241203-9088a25b.js",
+    "file": "assets/Home_copy_241203-4d209113.js",
     "imports": [
-      "_HomeNavLink-8b36f69a.js",
+      "_HomeNavLink-5790ac48.js",
       "main.js"
     ],
     "isDynamicEntry": true,
@@ -125,10 +125,10 @@
     "css": [
       "assets/Infohub-6c759008.css"
     ],
-    "file": "assets/Infohub-2d355227.js",
+    "file": "assets/Infohub-daf03910.js",
     "imports": [
       "main.js",
-      "_SideNavigation-9df5209b.js",
+      "_SideNavigation-9890736d.js",
       "_index-7d9a9c74.js"
     ],
     "isDynamicEntry": true,
@@ -145,7 +145,7 @@
     "css": [
       "assets/Work-c6877250.css"
     ],
-    "file": "assets/Work-65bac7ad.js",
+    "file": "assets/Work-a97ce40c.js",
     "imports": [
       "main.js"
     ],
@@ -160,10 +160,10 @@
     "css": [
       "assets/Workcategory-93c65f89.css"
     ],
-    "file": "assets/Workcategory-b78eb4d7.js",
+    "file": "assets/Workcategory-9b4adbfd.js",
     "imports": [
       "main.js",
-      "_SideNavigation-9df5209b.js",
+      "_SideNavigation-9890736d.js",
       "_index-7d9a9c74.js"
     ],
     "isDynamicEntry": true,

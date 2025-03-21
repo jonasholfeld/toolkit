@@ -539,8 +539,9 @@ onMounted(() => {
   .right-side {
     display: flex;
     flex-direction: column;
-    height: calc(100vh);
+    height: 100vh;
     width: 100%;
+    overflow: scroll;
     padding: 1.5rem;
     transition: width 0.5s ease;
     &.has-child {
@@ -555,7 +556,7 @@ onMounted(() => {
     .button-wrapper {
       padding-right: 1.5rem;
       display: flex;
-      height: 4rem;
+      flex: 0 0 4rem;
       transition: height 0.1s ease, opacity 1s ease;
       overflow: hidden;
       @include mobile {
