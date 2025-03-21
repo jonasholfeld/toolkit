@@ -18,6 +18,7 @@ columns:
           - heading
           - text
           - image
+          - list
           - type: centered
             extends: blocks/text
             name: Zentrierter Text

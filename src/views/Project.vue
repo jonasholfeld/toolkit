@@ -539,14 +539,27 @@ onMounted(() => {
   .right-side {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     overflow: scroll;
     padding: 1.5rem;
     transition: width 0.5s ease;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
     &.has-child {
       width: 50vw;
       padding-right: 0;
+      @include mobile {
+        flex: 1;
+        width: 100vw;
+      }
     }
     @include mobile {
       padding: 0;
@@ -569,6 +582,7 @@ onMounted(() => {
         height: 0;
         overflow: hidden;
         opacity: 0;
+        flex: 0 0 0;
       }
       button {
         background-color: white;
@@ -647,6 +661,10 @@ onMounted(() => {
         opacity: 0;
         overflow: hidden;
         transition: height 0.4s ease, opacity 0.4s ease 0s;
+        @include mobile {
+          height: 8rem;
+          opacity: 1;
+        }
       }
     }
     .footer-text {
@@ -684,12 +702,14 @@ onMounted(() => {
     &.has-child {
       .filter-wrapper {
         margin-bottom: 2rem !important;
+        max-width: 50rem;
+        // overflow: hidden;
       }
     }
     .filter-wrapper {
       display: flex;
-      margin-bottom: 7rem;
-      margin-top: 1rem;
+      margin-bottom: 2rem;
+      margin-top: 2rem;
       transition: margin-bottom 1s ease;
       padding-left: 0.4rem;
       @include mobile {
@@ -710,6 +730,7 @@ onMounted(() => {
         &.hide {
           opacity: 0;
           pointer-events: none;
+          display: none;
         }
         .text-links-mobile {
           display: none;
@@ -906,14 +927,17 @@ onMounted(() => {
     }
     .texts-wrapper {
       display: flex;
-      margin-bottom: auto;
+      margin-bottom: 2rem;
       align-items: baseline;
       flex-wrap: wrap;
       align-items: center;
       width: 90%;
+      flex: 1;
+      align-content: center;
       @include mobile {
         // display: none;
         height: 0;
+        flex: 0 0 0;
         overflow: hidden;
       }
     }
