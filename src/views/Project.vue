@@ -565,6 +565,7 @@ onMounted(() => {
     @include mobile {
       padding: 0;
       height: 100svh;
+      min-height: unset;
       flex: 1;
     }
     .button-wrapper {
