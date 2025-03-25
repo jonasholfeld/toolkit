@@ -28,7 +28,7 @@ const site = useSite();
   width: 100vw;
   @include mobile {
     overscroll-behavior: none;
-    height: 100dvh;
+    height: 100svh;
     overflow: scroll;
   }
 }
