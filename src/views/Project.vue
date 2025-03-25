@@ -436,11 +436,12 @@ onMounted(() => {
   display: flex;
   height: 100vh;
   @include mobile {
+    overscroll-behavior: none;
     flex-direction: column;
     width: 100vw;
     height: auto;
     overflow: hidden;
-    min-height: 100dvh;
+    min-height: 100svh;
     &.has-child {
       height: 100dvh !important;
     }
@@ -739,7 +740,7 @@ onMounted(() => {
           height: auto;
           background-color: transparent;
           font-size: $textmobile;
-          width: 100rem !important;
+          width: 99vw !important;
           margin-left: 0 !important;
           display: flex;
           flex-direction: column;

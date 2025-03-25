@@ -44,10 +44,38 @@ import { RouterLink, useRouter } from "vue-router";
 const router = useRouter();
 const page = usePage();
 console.log(page);
-onMounted(() => {
-  document
-    .querySelector(".inner-text-wrapper")
-    ?.addEventListener("click", navigate);
+onMounted(async () => {
+  const wrappers = document.querySelectorAll(".inner-text-wrapper");
+  if (wrappers.length === 0) return;
+  await nextTick();
+  wrappers.forEach((wrapper) => {
+    wrapper.addEventListener("click", navigate);
+  });
+
+  //   // Observe for .open element or wait until it's available
+  //   const observer = new MutationObserver(() => {
+  //     const openElement = wrapper.querySelector(".open");
+  //     if (openElement) {
+  //       console.log(">>>>>>>>", openElement);
+  //       openElement.scrollIntoView({ behavior: "smooth", block: "center" });
+  //       observer.disconnect();
+  //     }
+  //   });
+
+  //   // Start observing mutations
+  //   observer.observe(wrapper, { childList: true, subtree: true });
+
+  //   // Fallback: Polling method in case observer misses it
+  //   const interval = setInterval(() => {
+  //     const openElement = wrapper.querySelector(".open");
+  //     if (openElement) {
+  //       openElement.scrollIntoView({ behavior: "smooth", block: "center" });
+  //       clearInterval(interval);
+  //     }
+  //   }, 100);
+
+  //   // Optionally clear after 5s to avoid infinite polling
+  //   setTimeout(() => clearInterval(interval), 5000);
 });
 
 const goBack = () => {
@@ -120,6 +148,9 @@ watch(page, () => {
     const wrapperToOpen = document.getElementById(page.slug);
     if (wrapperToOpen) {
       wrapperToOpen.click();
+      setTimeout(() => {
+        wrapperToOpen.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 300);
     }
   });
 });
