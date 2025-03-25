@@ -232,6 +232,9 @@ h6 {
       font-size: $textsmall;
       padding-left: 2rem;
       padding-right: 2rem;
+      * {
+        font-size: $textsmall;
+      }
       @include mobile {
         font-size: $smallmobile;
       }
